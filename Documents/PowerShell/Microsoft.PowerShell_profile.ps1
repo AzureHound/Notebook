@@ -198,8 +198,13 @@ function ip {
     }
 }
 
+# Profile
+function Profile {
+    preview "C:\Users\eyes\.face.icon" 
+}
+
 # eza
-Function ll {
+function ll {
     param (
         [string[]]$Args
     )
@@ -207,7 +212,7 @@ Function ll {
 }
 
 # tree
-Function tree {
+function tree {
     param (
         [string[]]$Args
     )
