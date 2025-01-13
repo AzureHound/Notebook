@@ -25,7 +25,7 @@ scoop install nerd-fonts/Iosevka-NF
 scoop install nerd-fonts/ComicShannsMono-NF
 
 # Install the specified applications from Scoop
-scoop install 7zip adb ani-cli aria2 bat btop cacert chafa curl delta deno duf eza fd ffmpeg file fnm fzf gcc gh git gitui glow googlechrome grep imagemagick keepassxc lazygit less llvm localsend mingw mpv msys2 neovim nodejs-lts nu obsidian ollama openssl raspberry-pi-imager poppler ripgrep sed starship syncthing tailscale termshark tgpt tldr vcredist2022 vim winnfsd wezterm wget winfetch yazi yt-dlp zoxide
+scoop install 7zip adb ani-cli aria2 bat btop cacert chafa curl delta deno duf eza fd ffmpeg file fnm fzf gcc gh git gitui glow googlechrome grep hugo imagemagick keepassxc lazygit less llvm localsend mingw mpv msys2 neovim nodejs-lts nu obsidian ollama openssl raspberry-pi-imager poppler ripgrep sed starship syncthing tailscale termshark tgpt tldr vcredist2022 vim winnfsd wezterm wget winfetch yazi yt-dlp zoxide
 
 # Install the specified applications using Winget
 winget install Mozilla.Thunderbird MacPaw.Encrypto AdrienAllard.FileConverter FxSoundLLC.FxSound Flywheel.Local Microsoft.PowerToys KamilSzymborski.WindowCenteringHelper Canonical.Ubuntu Debian.Debian 9NKSQGP7F2NH
