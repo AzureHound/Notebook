@@ -1,0 +1,35 @@
+[include]
+  path = ~/.config/git/themes/catppuccin.gitconfig
+
+[user]
+  name = Wolf
+  email = 183492338+AzureHound@users.noreply.github.com
+
+[safe]
+  directory = ~/Developer
+
+[init]
+  defaultBranch = main
+
+[core]
+  editor = nvim
+  pager = delta
+  excludesfile = ~/.config/git/ignore
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  features = catppuccin-macchiato
+  hyperlinks = true
+  side-by-side = true
+  true-color = always
+  line-numbers = true
+  line-numbers-left-format = ""
+  line-numbers-right-format = "│ "
+
+[merge]
+    conflictstyle = zdiff3
+
+[pull]
+  rebase = false

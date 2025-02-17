@@ -1,0 +1,115 @@
+[pyprland]
+plugins = ["scratchpads", "magnify", "wallpapers"]
+
+[scratchpads.terminal]
+command = "kitty --class scratchpad-large"
+lazy = true
+
+[scratchpads.asciiquarium]
+command = "kitty --class scratchpad-larger asciiquarium -t"
+lazy = true
+
+[scratchpads.bluetui]
+command = "kitty --class scratchpad bluetui"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.bonsai]
+command = "kitty --class scratchpad-large cbonsai --seed 119 --live"
+lazy = true
+
+[scratchpads.btop]
+command = "kitty --class scratchpad-larger btop"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.cava]
+command = "kitty --class scratchpad cava"
+lazy = true
+
+[scratchpads.dash]
+command = "kitty --class scratchpad-large gh dash"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.gpt]
+command = "kitty --class scratchpad-large tgpt -m"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.lazydocker]
+command = "kitty --class scratchpad-large lazydocker"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.neovim]
+command = "kitty --class scratchpad-larger $terminal nvim"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.nvitop]
+command = "kitty --class scratchpad-large nvitop"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.pacseek]
+command = "kitty --class scratchpad-large pacseek"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.pipes]
+command = "kitty --class scratchpad-larger bash-pipes"
+lazy = true
+
+[scratchpads.tt]
+command = "kitty --class scratchpad-large tt -theme ~/.tt/Catppuccin-Macchiato"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.tv]
+command = "kitty --class scratchpad-large tv"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.tty]
+command = "kitty --class scratchpad-mini tty-clock -DScC1b"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.unimatrix]
+command = "kitty --class scratchpad-larger unimatrix -n -c red -s 90 -l 'o'"
+lazy = true
+
+[scratchpads.vim]
+command = "kitty --class scratchpad-larger vim"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.yazi]
+command = "kitty --class scratchpad-larger fish -c yazi"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.weather]
+command = "kitty --class scratchpad-larger fish -c 'curl \"v2.wttr.in/Agartala?F\"; sleep 120'"
+lazy = true
+
+[wallpapers]
+path = "~/Developer/repos/Wallpapers/"
+interval = 30 # minutes
+command = "swww img --transition-bezier 0.5,1.19,.8,.4 --transition-type wipe --transition-duration 2 --transition-fps 75 \"[file]\""
+clear_command = "swww clear"
+extensions = ["jpg", "png", "gif", "jpeg", "webp"]

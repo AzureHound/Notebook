@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Select region of the screen using slurp
+region=$(slurp)
+
+# Check if the user selected a valid region
+if [[ -z "$region" ]]; then
+    notify-send -i "$HOME/.icons/scalable/devices/video-display.svg" -h string:ocr:failed -t 2000 "ScreenOCR" "No region selected."
+    exit 1
+fi
+
+# Capture the screenshot of the selected region using grim and pipe it directly to tesseract
+ocr_text=$(grim -g "$region" - | tesseract stdin -)
+
+# Check if OCR was successful
+if [[ $? -eq 0 && -n "$ocr_text" ]]; then
+    # Copy OCR text to clipboard
+    echo "$ocr_text" | wl-copy
+    notify-send -i "$HOME/.icons/scalable/mimetypes/text-x-generic.svg" -h string:ocr:success -t 1000 "ScreenOCR" "Text copied to clipboard!"
+else
+    notify-send -i "$HOME/.icons/scalable/mimetypes/text-x-preview.svg" -h string:ocr:failed -t 2000 "ScreenOCR" "OCR failed."
+    exit 1
+fi

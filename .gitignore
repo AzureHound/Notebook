@@ -1,0 +1,47 @@
+# configs
+.config/Bitwarden CLI
+.config/BraveSoftware/*
+.config/dconf
+.config/gh
+.config/github-copilot
+.config/gtk-4.0/servers
+.config/go
+.config/keepassxc
+.config/libreoffice
+.config/pulse
+.config/obsidian
+.config/nvim
+.config/whoozle.github.io
+
+# fish
+.config/fish/fish_variables
+.config/fish/completions
+.config/fish/conf.d
+.config/fish/functions
+.config/fish/themes
+
+# tmux
+.config/tmux/plugins
+
+# yazi
+.config/yazi/flavors
+.config/yazi/plugins
+.config/yazi/package.toml
+
+# Others
+.local/bin/spotdl
+
+# Spotify
+.config/spotify
+
+# OBS Studio
+.config/obs-studio/*
+!.config/obs-studio/themes
+
+# VSCodium
+.config/VSCodium/*
+!.config/VSCodium/User/
+.config/VSCodium/User/*
+!.config/VSCodium/User/extensions.txt
+!.config/VSCodium/User/keybindings.json
+!.config/VSCodium/User/settings.json

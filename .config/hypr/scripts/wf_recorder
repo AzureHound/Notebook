@@ -1,0 +1,67 @@
+#!/bin/env bash
+
+# Ensure wf-recorder is installed
+if ! command -v wf-recorder &> /dev/null; then
+    notify-send -u critical "wf-recorder not found!"
+    exit 1
+fi
+
+# Stop recording if already running
+if pgrep -x "wf-recorder" > /dev/null; then
+    pkill -INT -x wf-recorder
+    exit 0
+fi
+
+# Countdown notifications
+for i in {3..1}; do
+    notify-send -i "$HOME/.icons/scalable/devices/computer.svg" -h string:wf-recorder:record -t 1000 "Recording in:" \
+        "<span color='#90a4f4' font='26px'><i><b>$i</b></i></span>"
+    sleep 1
+done
+
+# Set filename with datetime
+dateTime=$(date +%Y-%m-%d_%H-%M-%S)
+outputDir="$HOME/Videos/Screen Recording"
+mkdir -p "$outputDir"  # Ensure the Screen Recording directory exists
+outputFile="$outputDir/$dateTime.mp4"
+
+# Both mic and internal audio: PipeWire might mix sources automatically; may need a virtual sink for fine control.
+# System/internal audio
+audio_source="alsa_output.pci-0000_00_1f.3.analog-stereo.monitor"
+
+# External audio source
+audio_source="default"
+
+# Start recording with the chosen audio source and NVIDIA GPU encoding
+if ! wf-recorder --bframes max_b_frames --audio="$audio_source" -f "$outputFile" -c h264_qsv; then
+    notify-send -u critical "Recording failed!" "There was an error starting the recording."
+    exit 1
+fi
+
+# Send notification with actions
+send_notification() {
+  # local message="Recording Captured"$'\n'"Video saved in $outputFile"
+local message="Recording Captured"$'\n'"$(echo "Video saved in $outputFile" | fold -s -w 70)"
+
+  # Show notification with clickable actions
+  action=$(notify-send -i "$HOME/.icons/scalable/mimetypes/video-x-generic.svg" -u normal -a "Screen Recorder" "$message" \
+    --action="view=View File" \
+    --action="folder=Open on Folder" \
+    -t 5000)
+
+  # Capture the action response
+  case $action in
+    "view")
+      mpv "$outputFile"  # Open the recorded file with mpv
+      ;;
+    "folder")
+      nautilus "$outputDir"  # Open the folder with nautilus
+      ;;
+    *)
+      echo "No valid action selected."
+      ;;
+  esac
+}
+
+# Call the function to send the notification
+send_notification

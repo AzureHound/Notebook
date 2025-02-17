@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Apps
+# thunderbird &
+# obsidian &
+
+# Terminal Apps
+# kitty --class btop btop &
+# kitty --class nvitop nvitop &

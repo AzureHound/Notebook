@@ -1,0 +1,93 @@
+// Zed settings
+{
+  // User Interface
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_size": 15,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "show_user_picture": false,
+  "buffer_font_size": 15,
+  "relative_line_numbers": false,
+  "current_line_highlight": "none",
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Espresso (Blur)"
+  },
+
+  // Panels
+  "project_panel": {
+    "default_width": 300,
+    "button": true,
+    "dock": "left",
+    "git_status": true
+  },
+  "notification_panel": {
+    "button": false,
+    "default_width": 300,
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font",
+    "dock": "left",
+    "copy_on_select": true,
+    "shell": {
+      "with_arguments": {
+        "program": "/sbin/zsh",
+        "args": ["--login"]
+      }
+    }
+  },
+
+  // Features
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true,
+      "position": "left"
+    }
+  },
+
+  //Vim
+  "vim_mode": false,
+
+  // Tweaks
+  "format_on_save": "on",
+  "ensure_final_newline_on_save": false,
+  "remove_trailing_whitespace_on_save": false,
+  "tabs": {
+    "show_icons": true,
+    "git_status": true,
+    "close_position": "right"
+  },
+
+  // Assistant
+    "assistant": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "deepseek-r1:8b"
+    },
+    "version": "2"
+  },
+
+  // Telemetry
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  }
+}
