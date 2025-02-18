@@ -76,6 +76,7 @@ alias clock='tty-clock -DScC6b'
 alias emoji='~/.local/bin/emojifzf'
 alias lofi='lowfi'
 alias preview='kitten icat'
+alias battery="echo $(cat /sys/class/power_supply/BAT0/capacity)%"
 alias words='tt -theme ~/.tt/Catppuccin-Macchiato'
 alias matrix="unimatrix -n -c yellow -s 90 -l 'o'"
 alias weather='curl "v2.wttr.in/Agartala?F"'

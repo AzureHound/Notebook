@@ -142,12 +142,13 @@ alias clock='tty-clock -DScC6b'
 alias emoji='~/.config/hypr/scripts/emojifzf'
 alias lofi='lowfi'
 alias preview='kitten icat'
+alias battery="echo $(cat /sys/class/power_supply/BAT0/capacity)%"
 alias words='tt -theme ~/.tt/Catppuccin-Macchiato'
 alias matrix="unimatrix -n -c yellow -s 90 -l 'o'"
 alias weather='curl "v2.wttr.in/Agartala?F"'
 
 alias branch='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff --color=always {1} | delta" --pointer="" | xargs git checkout'
-alias commits='o~/.local/bin/git-commits.sh'
+alias commits='~/.local/bin/commits'
 alias glog='git log --oneline --graph --all'
 alias gen='tgpt -i'
 alias ssh="kitten ssh"
