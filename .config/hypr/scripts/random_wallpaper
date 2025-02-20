@@ -11,7 +11,7 @@ swww img "$wallpaper" \
 	--transition-bezier 0.5,1.19,.8,.4 \
 	--transition-type wipe \
 	--transition-duration 2 \
-	--transition-fps 75
+	--transition-fps 30
 
 
 # notify-send "Wallpaper Changed" -i "$wallpaper" --app-name=Wallpaper

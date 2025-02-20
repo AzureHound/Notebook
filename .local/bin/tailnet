@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Check if tailscaled is running
+if ! systemctl is-active --quiet tailscaled; then
+    echo "Starting tailscale service..."
+    sudo systemctl start tailscaled
+fi
+
+case "$1" in
+    connect)
+        sudo tailscale up --accept-routes
+        ;;
+    disconnect)
+        sudo tailscale down
+        echo "Disabling tailscale service..."
+        sudo systemctl disable --now tailscaled
+        ;;
+    status)
+        sudo tailscale status
+        ;;
+    *)
+        echo "Usage: tailnet {connect|disconnect|status}"
+        ;;
+esac

@@ -1,12 +1,12 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "source": "~/.config/fastfetch/nixos.png",
-    // "height": 15,
-    // "width": 35,
+    "source": "~/.config/fastfetch/sakura.png",
+    "height": 13,
+    "width": 35,
     "padding": {
-        "top": 1,
-        "left": 3
+      "top": 1,
+      "left": 3
     }
   },
   "display": {

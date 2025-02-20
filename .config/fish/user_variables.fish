@@ -1,3 +1,7 @@
+# Graphics
+set -x XDG_RUNTIME_DIR /run/user/(id -u)
+set -x LIBVA_DRIVER_NAME iHD
+
 # XDG Directories
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_CACHE_HOME $HOME/.cache
@@ -6,7 +10,6 @@ set -xg XDG_STATE_HOME $HOME/.local/state
 set -xg XDG_BIN_HOME $HOME/.local/bin
 
 # Respect XDG Specification
-set -x XDG_RUNTIME_DIR /run/user/(id -u)
 set -xg CONAN_USER_HOME $XDG_CONFIG_HOME
 set -xg GOPATH $XDG_DATA_HOME/go
 set -xg GOMODCACHE $XDG_CACHE_HOME/go/mod

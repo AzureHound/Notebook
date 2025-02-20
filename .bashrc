@@ -17,3 +17,6 @@ export SUDO_EDITOR $EDITOR
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 # export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+
+# Graphics
+export LIBVA_DRIVER_NAME=iHD
