@@ -37,15 +37,15 @@ outputDir="$HOME/Videos/Screen Recording"
 mkdir -p "$outputDir"  # Ensure the Screen Recording directory exists
 outputFile="$outputDir/$dateTime.mp4"
 
-# Both mic and internal audio: PipeWire might mix sources automatically; may need a virtual sink for fine control.
-# System/internal audio
+# Set Intel Quick Sync (QSV) environment variables
+export LIBVA_DRIVER_NAME=iHD
+export VAAPI_DEVICE=/dev/dri/renderD128
+
+# System/internal audio (PipeWire virtual sink)
 audio_source="alsa_output.pci-0000_00_1f.3.analog-stereo.monitor"
 
-# External audio source
-audio_source="default"
-
-# Start recording with the chosen audio source, selected area, and NVIDIA GPU encoding
-if ! wf-recorder --bframes max_b_frames --audio="$audio_source" -g "$selection" -f "$outputFile" -c h264_qsv; then
+# Start recording with the chosen audio source, selected area, and Intel QSV encoding
+if ! wf-recorder --bframes max_b_frames --audio="$audio_source" -g "$selection" -f "$outputFile" -c h264_vaapi; then
     notify-send -u critical "Recording failed!" "There was an error starting the recording."
     exit 1
 fi

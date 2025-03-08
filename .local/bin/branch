@@ -4,13 +4,23 @@
 # Looks for local and remote branches
 function fsb() {
     local pattern=$*
-        local branches branch
-        branches=$(git branch --all | awk 'tolower($0) ~ /'"$pattern"'/') &&
-        branch=$(echo "$branches" |
-                fzf-tmux -p --reverse -1 -0 +m) &&
-        if [ "$branch" = "" ]; then
-            echo "[$0] No branch matches the provided pattern"; return;
-    fi;
+    local branches branch
+
+    # Get all branches (local and remote) matching the pattern
+    branches=$(git branch --all | awk 'tolower($0) ~ /'"$pattern"'/')
+
+    # Use fzf to fuzzy search and pick a branch
+    branch=$(echo "$branches" | fzf-tmux -p --reverse -1 -0 +m)
+
+    # If no branch is selected, print a message and return
+    if [ -z "$branch" ]; then
+        echo "No branch matches the provided pattern"; 
+        return
+    fi
+
+    # Checkout the selected branch (removes 'remotes/' prefix if it's a remote branch)
     git checkout "$(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")"
 }
+
+# Call fsb with the provided pattern (arguments passed to the script)
 fsb "$@"

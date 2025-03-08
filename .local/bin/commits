@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Interactive Git commit browser using fzf
 function commits() {
   git -c color.ui=always log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |

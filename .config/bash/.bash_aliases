@@ -1,0 +1,16 @@
+# aliases
+alias la='eza -a --icons'
+alias ls='eza --icons'
+alias ll='eza -a -l --icons'
+alias cp='cp -i'
+alias mv='mv -i'
+alias df='df -h'
+alias tree='eza -a -T --git-ignore --icons'
+alias lta4="eza -lTag --git-ignore --level=4 --icons"
+alias rg='rg -i'
+alias preview='kitten icat'
+alias glog='git log --oneline --graph --all'
+alias gen='tgpt -i'
+alias ssh="kitten ssh"
+alias powertop='sudo powertop'
+alias zed='zeditor'

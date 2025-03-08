@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Path to spotdl executable
+SPOTDL_PATH="$HOME/.local/bin/spotdl"
+
+# Check if spotdl exists
+if [ ! -f "$SPOTDL_PATH" ]; then
+    echo "Error: spotdl not found at $SPOTDL_PATH"
+    exit 1
+fi
+
+# Function to validate Spotify URL
+validate_spotify_url() {
+    local url=$1
+    if [[ $url =~ ^https://open\.spotify\.com/(track|playlist|album)/ ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Create error logs directory in home
+LOGS_DIR="/tmp"
+mkdir -p "$LOGS_DIR"
+
+# Main prompt
+echo "Enter Spotify URL (playlist/track):"
+read spotify_url
+
+# Validate URL
+if ! validate_spotify_url "$spotify_url"; then
+    echo "Error: Invalid Spotify URL. URL should start with 'https://open.spotify.com/'"
+    exit 1
+fi
+
+# Run spotdl with appropriate options
+echo "Downloading from: $spotify_url"
+
+# The command is now constructed exactly like the working version you provided
+command="$SPOTDL_PATH download \"$spotify_url\" --scan-for-songs --overwrite skip --threads 3 --bitrate 320k --print-errors --save-errors \"$LOGS_DIR/spotdl_errors_$(date +%Y%m%d_%H%M%S).txt\""
+
+echo "Executing command: $command"
+eval "$command"
+
+exit_code=$?
+
+if [ $exit_code -eq 0 ]; then
+    echo "Download completed successfully!"
+else
+    echo "Download completed with some errors. Check the errors file in $LOGS_DIR for details."
+fi

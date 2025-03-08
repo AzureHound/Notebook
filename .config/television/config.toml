@@ -15,14 +15,14 @@
 
 # General settings
 # ----------------------------------------------------------------------------
-frame_rate = 60
+# frame_rate = 60 # DEPRECATED: this option is no longer used
 tick_rate = 50
 
 [ui]
 # Whether to use nerd font icons in the UI
 # This option requires a font patched with Nerd Font in order to properly
 # display glyphs (see https://www.nerdfonts.com/ for more information)
-use_nerd_font_icons = true
+use_nerd_font_icons = false
 # How much space to allocate for the UI (in percentage of the screen)
 # ┌───────────────────────────────────────┐
 # │                                       │
@@ -56,7 +56,7 @@ input_bar_position = "bottom"
 # A list of builtin themes can be found in the `themes` directory of the television
 # repository. You may also create your own theme by creating a new file in a `themes`
 # directory in your configuration directory (see the `config.toml` location above).
-theme = "catppuccin"
+theme = "Catppuccin Macchiato"
 
 # Previewers settings
 # ----------------------------------------------------------------------------
@@ -74,7 +74,7 @@ theme = "Catppuccin Macchiato"
 # ------------------------
 [keybindings.Channel]
 # Quit the application
-quit = "esc"
+quit = ["esc", "ctrl-c"]
 # Scrolling through entries
 select_next_entry = ["down", "ctrl-n", "ctrl-j"]
 select_prev_entry = ["up", "ctrl-p", "ctrl-k"]
@@ -83,8 +83,12 @@ select_prev_page = "pageup"
 # Scrolling the preview pane
 scroll_preview_half_page_down = "ctrl-d"
 scroll_preview_half_page_up = "ctrl-u"
-# Select an entry
-select_entry = "enter"
+# Add entry to selection and move to the next entry
+toggle_selection_down = "tab"
+# Add entry to selection and move to the previous entry
+toggle_selection_up = "backtab"
+# Confirm selection
+confirm_selection = "enter"
 # Copy the selected entry to the clipboard
 copy_entry_to_clipboard = "ctrl-y"
 # Toggle the remote control mode
@@ -145,46 +149,64 @@ toggle_preview = "ctrl-o"
 # E.g. typing `git checkout <CTRL-T>` will open television with a list of
 # branches to choose from.
 
-[shell_integration.commands]
-# Add your commands here. Each key is a command that will trigger tv with the
-# corresponding channel as value.
-# Example: say you want the following prompts to trigger the following channels
+[shell_integration.channel_triggers]
+# Add your channel triggers here. Each key is a channel that will be triggered
+# by the corresponding commands.
+# Example: say you want the following commands to trigger the following channels
 # when pressing <CTRL-T>:
-#          `git checkout` should trigger the `git-branches` channel
-#          `ls`           should trigger the `dirs` channel
-#          `cat`          should trigger the `files` channel
+#          `git checkout`  should trigger the `git-branches` channel
+#          `ls`            should trigger the `dirs` channel
+#          `cat` and `cp`  should trigger the `files` channel
 #
 # You would add the following to your configuration file:
 # ```
-# [shell_integration.commands]
-# "git checkout" = "git-branch"
-# "ls" = "dirs"
-# "cat" = "files"
+# [shell_integration.channel_triggers]
+# "git-branches" = ["git checkout"]
+# "dirs" = ["ls"]
+# "files" = ["cat", "cp"]
 # ```
+"alias" = ["alias", "unalias"]
+"env" = ["export", "unset"]
+"dirs" = ["cd", "ls", "rmdir"]
+"files" = [
+  "cat",
+  "less",
+  "head",
+  "tail",
+  "vim",
+  "nano",
+  "bat",
+  "cp",
+  "mv",
+  "rm",
+  "touch",
+  "chmod",
+  "chown",
+  "ln",
+  "tar",
+  "zip",
+  "unzip",
+  "gzip",
+  "gunzip",
+  "xz",
+]
+"git-diff" = ["git add", "git restore"]
+"git-branch" = [
+  "git checkout",
+  "git branch",
+  "git merge",
+  "git rebase",
+  "git pull",
+  "git push",
+]
+"docker-images" = ["docker run"]
+"git-repos" = ["nvim", "code", "hx", "git clone"]
 
-# environment variables
-"export" = "env"
-"unset" = "env"
 
-# dirs channel
-"cd" = "dirs"
-"ls" = "dirs"
-"rmdir" = "dirs"
-
-# files channel
-"cat" = "files"
-"less" = "files"
-"head" = "files"
-"tail" = "files"
-"vim" = "files"
-"bat" = "files"
-
-# git-branch channel
-"git checkout" = "git-branch"
-"git branch -d" = "git-branch"
-
-# docker-images channel
-"docker run" = "docker-images"
-
-# gitrepos channel
-"nvim" = "git-repos"
+[shell_integration.keybindings]
+# controls which key binding should trigger tv
+# for shell autocomplete
+"smart_autocomplete" = "ctrl-t"
+# controls which keybinding should trigger tv
+# for command history
+"command_history" = "ctrl-r"

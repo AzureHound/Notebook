@@ -21,7 +21,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Espresso (Blur)"
+    "dark": "Ayu Mirage"
   },
 
   // Panels
@@ -77,10 +77,10 @@
   },
 
   // Assistant
-    "assistant": {
+  "assistant": {
     "default_model": {
-      "provider": "ollama",
-      "model": "deepseek-r1:8b"
+      "provider": "copilot_chat",
+      "model": "gpt-4o"
     },
     "version": "2"
   },

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SESSION_NAME="Code"
+
+# Check if any tmux session exists
+if tmux ls 2>/dev/null; then
+    # Attach to the first existing session
+    tmux attach-session -t $(tmux ls | head -n 1 | cut -d: -f1)
+else
+    # If no session exists, create a new one with the name "Code"
+    tmux new-session -s $SESSION_NAME -d
+    tmux attach-session -t $SESSION_NAME
+fi

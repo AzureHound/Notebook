@@ -1,0 +1,14 @@
+start_directory: ~/
+session_name: Work
+windows:
+  - layout: main-vertical #tiled
+    # start_directory: ~
+    panes:
+      - shell_command:
+          - nvim
+      -
+  - layout: tiled #main-vertical
+    # start_directory: ~
+    panes:
+      -
+      - zsh

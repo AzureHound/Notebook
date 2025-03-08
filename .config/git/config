@@ -13,7 +13,7 @@
 
 [core]
   editor = nvim
-  pager = delta
+  pager = delta #--dark --diff-so-fancy
   excludesfile = ~/.config/git/ignore
 
 [interactive]
@@ -25,11 +25,14 @@
   side-by-side = true
   true-color = always
   line-numbers = true
-  line-numbers-left-format = ""
   line-numbers-right-format = "│ "
 
 [merge]
     conflictstyle = zdiff3
 
 [pull]
-  rebase = false
+	rebase = true
+
+[color "diff"]
+  old = red strike
+  new = green italic

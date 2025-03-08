@@ -1,3 +1,7 @@
+startuppopupversion: 0
+notARepository: 'skip'
+recentrepos:
+- repo
 gui:
  # Use the mocha catppuccin theme
  theme:
@@ -22,3 +26,11 @@ gui:
      - '#eed49f'
    searchingActiveBorderColor:
      - '#b7bdf8'
+git:
+    paging:
+        colorArg: always
+        pager: delta --dark --paging=never #--24-bit-color=never
+    merging:
+        manualCommit: false
+        args: ""
+    autoFetch: true

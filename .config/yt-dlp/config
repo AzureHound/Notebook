@@ -1,0 +1,16 @@
+# Download directory
+-o "~/Videos/yt-dlp/%(playlist|)s/%(playlist_index&{} - |)s%(title)s [%(id)s].%(ext)s"
+
+# -x # Always extract audio
+# --no-playlist
+
+# Embed metadata to the video
+--sub-langs="en.*"
+--embed-thumbnail
+--embed-subs
+--embed-metadata
+--embed-chapter
+
+# Mark SponsorBlock as a Chapter
+--sponsorblock-mark all
+--sponsorblock-chapter-title "SponsorBlock: %(category_names)l"

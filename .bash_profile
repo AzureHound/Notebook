@@ -1,5 +1,2 @@
-#
-# ~/.bash_profile
-#
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+#!/usr/bin/env bash
+. $HOME/.bashrc

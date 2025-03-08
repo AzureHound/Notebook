@@ -41,6 +41,12 @@ unfocus = "hide"
 hysteresis = 0.1
 lazy = true
 
+[scratchpads.htop]
+command = "kitty --class scratchpad-large htop"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
 [scratchpads.lazydocker]
 command = "kitty --class scratchpad-large lazydocker"
 unfocus = "hide"
@@ -53,8 +59,8 @@ unfocus = "hide"
 hysteresis = 0.1
 lazy = true
 
-[scratchpads.nvitop]
-command = "kitty --class scratchpad-large nvitop"
+[scratchpads.intop]
+command = "kitty --class scratchpad-large sudo intel_gpu_top"
 unfocus = "hide"
 hysteresis = 0.1
 lazy = true

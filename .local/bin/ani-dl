@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Prompt for anime name
+read -p "Enter Anime Name: " anime_name
+
+# Prompt for the last episode number
+read -p "Enter the last episode number: " last_episode
+
+# Run ani-cli with the provided inputs
+ani-cli "$anime_name" -d -e 1-"$last_episode"

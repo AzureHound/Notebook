@@ -293,6 +293,6 @@
   "editor.gotoLocation.multipleImplementations": "goto",
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.minimap.enabled": false,
-  "workbench.activityBar.location": "hidden",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "workbench.activityBar.location": "hidden"
 }
