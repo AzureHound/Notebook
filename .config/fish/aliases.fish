@@ -15,11 +15,9 @@ alias bonsai='cbonsai --seed 119'
 alias lofi='lowfi'
 alias preview='kitten icat'
 alias words='tt -theme ~/.tt/Catppuccin-Macchiato'
-alias matrix="unimatrix -n -c yellow -s 90 -l 'o'"
 alias weather='curl "v2.wttr.in/Agartala?F"'
 
 alias glog='git log --oneline --graph --all'
-alias gen='tgpt -i'
 alias ssh="kitten ssh"
 alias powertop='sudo powertop'
 alias zed='zeditor'
