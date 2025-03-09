@@ -2,6 +2,7 @@
 set wrap
 set ruler
 set mouse=a
+set number
 set showcmd
 set nobackup
 set hlsearch
@@ -18,6 +19,7 @@ set nocursorline
 set relativenumber
 set nocursorcolumn
 set encoding=UTF-8
+set clipboard=unnamedplus
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))

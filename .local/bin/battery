@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Check if upower is installed
+if ! command -v upower &>/dev/null; then
+    echo "Error: upower not found. Install it first."
+    exit 1
+fi
+
+# Get battery device
+BATTERY=$(upower -e | grep 'BAT')
+
+# Check if a battery is detected
+if [ -z "$BATTERY" ]; then
+    echo "No battery detected."
+    exit 1
+fi
+
+# Display battery status
+upower -i "$BATTERY" | grep --color=never -E "state|to full|percentage"
