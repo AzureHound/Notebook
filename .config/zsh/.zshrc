@@ -27,8 +27,11 @@ zinit cdreplay -q
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --show-symlinks --git-ignore --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a -1 --show-symlinks --git-ignore --icons --color=always $realpath'
+# zstyle ':fzf-tab:*' fzf-command 'ftb-tmux-popup'
+# zstyle ':fzf-tab:*' popup-min-size 80 12
 
 # History
 HISTFILE=$XDG_CACHE_HOME/zsh_history
