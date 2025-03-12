@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Get the current directory name
+currentdirname=${PWD##*/}
+
+# List the contents and save to a .m3u file, excluding the .m3u file itself
+ls | grep -v "$currentdirname.m3u" > "$currentdirname.m3u"
