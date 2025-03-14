@@ -41,7 +41,7 @@ Windows = ' '
 
 [time]
 disabled = false
-style = "#F8DE7E dimmed"
+style = "cyan"
 format = '[$time]($style)'
 time_format = "%T"
 # utc_time_offset = "-5"

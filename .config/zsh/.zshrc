@@ -72,6 +72,7 @@ eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/p10k.toml)"
 eval "$(atuin init zsh)"
 eval "$(tv init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(register-python-argcomplete pipx)"
 
 # FZF
 source <(fzf --zsh)

@@ -115,7 +115,7 @@ lazy = true
 
 [wallpapers]
 path = "~/Developer/repos/Wallpapers/"
-interval = 30 # minutes
-command = "swww img --transition-bezier 0.5,1.19,.8,.4 --transition-type wipe --transition-duration 2 --transition-fps 75 \"[file]\""
+interval = 60 # Minutes
+command = "swww img --transition-type wipe --transition-duration 2 --transition-fps 30 \"[file]\""
 clear_command = "swww clear"
 extensions = ["jpg", "png", "gif", "jpeg", "webp"]

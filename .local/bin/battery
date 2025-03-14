@@ -16,4 +16,12 @@ if [ -z "$BATTERY" ]; then
 fi
 
 # Display battery status
-upower -i "$BATTERY" | grep --color=never -E "state|to full|percentage"
+STATUS=$(upower -i "$BATTERY" | grep --color=never -E "state|to full|percentage")
+
+# Check if the battery is discharging and add the remaining time to the status
+if upower -i "$BATTERY" | grep -q "state.*discharging"; then
+    TIME_REMAINING=$(upower -i "$BATTERY" | grep "time to empty" | awk '{print $4, $5}')
+    STATUS="$STATUS\n    time remaining:       $TIME_REMAINING"
+fi
+
+echo -e "$STATUS"

@@ -11,6 +11,7 @@
 .config/obsidian
 .config/pika-backup
 .config/pulse
+.config/qimgv/savedState.conf
 .config/ripgrep-all
 .config/systemd
 .config/whoozle.github.io

@@ -23,14 +23,26 @@ validate_spotify_url() {
 LOGS_DIR="/tmp"
 mkdir -p "$LOGS_DIR"
 
-# Main prompt
-echo "Enter Spotify URL (playlist/track):"
-read spotify_url
+# Check if 'link' file exists in the current directory
+if [ -f "link" ]; then
+    spotify_url=$(cat link)
+    echo "Found link file. Using URL: $spotify_url"
 
-# Validate URL
-if ! validate_spotify_url "$spotify_url"; then
-    echo "Error: Invalid Spotify URL. URL should start with 'https://open.spotify.com/'"
-    exit 1
+    # Validate URL from file
+    if ! validate_spotify_url "$spotify_url"; then
+        echo "Error: Invalid Spotify URL in link file. URL should start with 'https://open.spotify.com/'"
+        exit 1
+    fi
+else
+    # Main prompt
+    echo "Enter Spotify URL (playlist/track):"
+    read spotify_url
+
+    # Validate URL
+    if ! validate_spotify_url "$spotify_url"; then
+        echo "Error: Invalid Spotify URL. URL should start with 'https://open.spotify.com/'"
+        exit 1
+    fi
 fi
 
 # Run spotdl with appropriate options

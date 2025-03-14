@@ -33,7 +33,6 @@ set -xg PNPM_HOME $XDG_DATA_HOME/pnpm
 
 # Path
 fish_add_path $XDG_BIN_HOME
-fish_add_path $XDG_BIN_HOME/color-scripts/
 fish_add_path $GOPATH/bin
 fish_add_path $CARGO_HOME/bin
 fish_add_path $XDG_SCRIPT_HOME
