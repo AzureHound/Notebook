@@ -37,3 +37,6 @@ wl-paste --type image --watch cliphist store &
 
 # Audio
 easyeffects --gapplication-service &
+
+# Brightness Power Saving
+brightnessctl s 3% &

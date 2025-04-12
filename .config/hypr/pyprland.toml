@@ -5,6 +5,11 @@ plugins = ["scratchpads", "magnify", "wallpapers"]
 command = "kitty --class scratchpad-large"
 lazy = true
 
+[scratchpads.anime]
+command = "kitty --class scratchpad-larger fish -c 'fastanime anilist'"
+hysteresis = 0.1
+lazy = true
+
 [scratchpads.asciiquarium]
 command = "kitty --class scratchpad-larger asciiquarium -t"
 lazy = true
@@ -31,6 +36,18 @@ lazy = true
 
 [scratchpads.dash]
 command = "kitty --class scratchpad-large gh dash"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.deshuffle]
+command = "kitty --class scratchpad-large deshuffle.sh"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
+[scratchpads.explorer]
+command = "kitty --class scratchpad-larger explorer"
 unfocus = "hide"
 hysteresis = 0.1
 lazy = true
@@ -75,6 +92,12 @@ lazy = true
 command = "kitty --class scratchpad-larger bash-pipes"
 lazy = true
 
+[scratchpads.superfile]
+command = "kitty --class scratchpad-larger fish -c spf"
+unfocus = "hide"
+hysteresis = 0.1
+lazy = true
+
 [scratchpads.tt]
 command = "kitty --class scratchpad-large tt -theme ~/.tt/Catppuccin-Macchiato"
 unfocus = "hide"
@@ -88,7 +111,7 @@ hysteresis = 0.1
 lazy = true
 
 [scratchpads.tty]
-command = "kitty --class scratchpad-mini tty-clock -DScC1b"
+command = "kitty --class scratchpad tty-clock -SscC1b -f '%a, %d %b'"
 unfocus = "hide"
 hysteresis = 0.1
 lazy = true
@@ -115,7 +138,7 @@ lazy = true
 
 [wallpapers]
 path = "~/Developer/repos/Wallpapers/"
-interval = 60 # Minutes
+interval = 120 # Minutes
 command = "swww img --transition-type wipe --transition-duration 2 --transition-fps 30 \"[file]\""
 clear_command = "swww clear"
 extensions = ["jpg", "png", "gif", "jpeg", "webp"]

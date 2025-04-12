@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Check if fzf is installed
+if ! command -v fzf &>/dev/null; then
+  echo "fzf could not be found, please install it first."
+  exit
+fi
+
+# Check if nvim is installed
+if ! command -v nvim &>/dev/null; then
+  echo "nvim could not be found, please install it first."
+  exit
+fi
+
+# Get the list of files including symlinks
+files=$(find . -type f -o -type l 2>/dev/null | fzf)
+
+# If a file is selected, open it with nvim
+if [ -n "$files" ]; then
+  nvim "$files"
+fi

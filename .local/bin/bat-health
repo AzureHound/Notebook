@@ -1,0 +1,18 @@
+#!/bin/bash
+
+BAT_PATH="/sys/class/power_supply/BAT0"
+
+# Use energy_* if available, otherwise fallback to charge_*
+if [[ -f "$BAT_PATH/energy_full" && -f "$BAT_PATH/energy_full_design" ]]; then
+    full=$(cat "$BAT_PATH/energy_full")
+    design=$(cat "$BAT_PATH/energy_full_design")
+elif [[ -f "$BAT_PATH/charge_full" && -f "$BAT_PATH/charge_full_design" ]]; then
+    full=$(cat "$BAT_PATH/charge_full")
+    design=$(cat "$BAT_PATH/charge_full_design")
+else
+    echo "Battery info not found or unsupported system."
+    exit 1
+fi
+
+health=$(( 100 * full / design ))
+echo "Battery Health: $health%"

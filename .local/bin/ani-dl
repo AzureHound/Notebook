@@ -1,10 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Prompt for anime name
-read -p "Enter Anime Name: " anime_name
+read -rp "Anime Title: " anime_title
+if [[ -z "$anime_title" ]]; then
+  echo "No Title Entered. Exiting."
+  exit 1
+fi
 
-# Prompt for the last episode number
-read -p "Enter the last episode number: " last_episode
+read -rp "Latest Episodes! " latest_count
 
-# Run ani-cli with the provided inputs
-ani-cli "$anime_name" -d -e 1-"$last_episode"
+if [[ -z "$latest_count" ]]; then
+  # Download all episodes
+  fastanime --sub download -t "$anime_title" -r ':'
+else
+  # Download latest N episodes
+  fastanime --sub download -t "$anime_title" -r "-$latest_count:"
+fi

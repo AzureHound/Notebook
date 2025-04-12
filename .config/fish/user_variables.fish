@@ -51,6 +51,10 @@ fish_add_path $XDG_DATA_HOME/npm/bin
 fish_add_path $HOME/.yarn/bin
 fish_add_path $XDG_DATA_HOME/pnpm
 
+# Carapace
+set -Ux CARAPACE_BRIDGES 'zsh,fish,bash'
+carapace _carapace | source
+
 # Fish
 fish_config theme choose "Catppuccin Macchiato" # Catppuccin Macchiato, Dracula Official
 set -g theme_nerd_fonts yes
@@ -61,41 +65,41 @@ set -xg EDITOR nvim
 set -xg VISUAL $EDITOR
 set -xg SUDO_EDITOR vim
 
-# GPG/LANG
-set -xg GPG_TTY (tty)
-
 # FZF
-set -xg FZF_DEFAULT_COMMAND "fd"
+set -xg FZF_DEFAULT_COMMAND "fd --hidden --no-ignore"
 set -xg fzf_fd_opts "--hidden --color=always"
 set -xg _ZO_FZF_OPTS $FZF_DEFAULT_OPTS '--preview "{$fzf_preview_dir_cmd} {2}"'
 set -xg fzf_preview_dir_cmd "eza --long --header --icons --all --color=always --group-directories-first --hyperlink"
-set -xg FZF_DEFAULT_OPTS "--height=90% --layout=reverse --info=inline --border rounded --pointer='' --marker '⇒' --margin=1 --padding=1 \
+set -xg FZF_DEFAULT_OPTS "--height=100% --info=right --border rounded --pointer='' --marker '⇒' --margin=1 --padding=1 \
 --color=bg+:-1,gutter:-1,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
 --color=selected-bg:#494d64 \
---bind 'ctrl-u:preview-half-page-up'
---bind 'ctrl-d:preview-half-page-down'
---bind 'ctrl-y:execute-silent(printf {} | cut -f 2- | wl-copy --trim-newline)'
---multi"
+--bind 'ctrl-u:preview-half-page-up' \
+--bind 'ctrl-d:preview-half-page-down' \
+--bind 'ctrl-y:execute-silent(printf {} | cut -f 2- | wl-copy --trim-newline)' \
+--multi --prompt '󰥨 Search: ' --preview 'bat --style=numbers --color=always --line-range=:500 {}'"
 
 # yazi
 function y
-	set tmp (mktemp -t "yazi-cwd.XXXXXX")
-	yazi $argv --cwd-file="$tmp"
-	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-		builtin cd -- "$cwd"
-	end
-	rm -f -- "$tmp"
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
 end
+
+# GPG/LANG
+set -xg GPG_TTY (tty)
+
+# Man
+set -x MANPATH /usr/share/man:/usr/local/man:/usr/local/share/man
 
 # Npm
 set NPM_PACKAGES "$HOME/.npm-packages"
 set PATH $PATH $NPM_PACKAGES/bin
 set MANPATH $NPM_PACKAGES/share/man $MANPATH
-
-# Man
-set -x MANPATH /usr/share/man:/usr/local/man:/usr/local/share/man
 
 # Other
 if type -q vivid

@@ -80,3 +80,6 @@ export PERL5LIB=/home/eyes/perl5/lib/perl5:$PERL5LIB
 
 # Pipx
 eval "$(register-python-argcomplete pipx)"
+
+# uv
+eval "$(uv generate-shell-completion zsh)"

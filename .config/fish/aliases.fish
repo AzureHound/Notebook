@@ -10,7 +10,7 @@ alias histwipe="cliphist wipe"
 alias private='fish -P'
 alias rg='rg -i'
 alias glog='git log --oneline --graph --all'
-alias ssh="kitten ssh"
+alias ssh="kitty +kitten ssh"
 alias powertop='sudo powertop'
 alias zed='zeditor'
 

@@ -28,7 +28,7 @@
     "title": {
       "text": "Notifications",
       "clear-all-button": true,
-      "button-text": "Clear All"
+      "button-text": " 󰎟 "
     },
     "dnd": {
       "text": "Do Not Disturb"
@@ -53,28 +53,12 @@
           "command": "systemctl reboot"
         },
         {
-          "label": "󰌾",
-          "command": "$HOME/.config/sway/lock.sh"
-        },
-        {
           "label": "󰍃",
-          "command": "swaymsg exit"
+          "command": "hyprctl dispatch exit"
         },
         {
           "label": "󰏥",
           "command": "systemctl suspend"
-        },
-        {
-          "label": "󰛳",
-          "command": "nm-connection-editor"
-        },
-        {
-          "label": "󰂯",
-          "command": "blueman-manager"
-        },
-        {
-          "label": "",
-          "command": "kooha"
         }
       ]
     }
