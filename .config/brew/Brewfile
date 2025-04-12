@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 brew "gcc"
+brew "uv"
 vscode "bmalehorn.vscode-fish"
 vscode "catppuccin.catppuccin-vsc"
 vscode "catppuccin.catppuccin-vsc-icons"
