@@ -9,7 +9,7 @@ alias lta4="eza -lTag --git-ignore --level=4 --icons"
 alias histwipe="cliphist wipe"
 alias private='fish -P'
 alias rg='rg -i'
-alias glog='git log --oneline --graph --all'
+alias gitlogs='git log --oneline --graph --all'
 alias ssh="kitty +kitten ssh"
 alias powertop='sudo powertop'
 alias zed='zeditor'
