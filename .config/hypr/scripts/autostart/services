@@ -39,4 +39,4 @@ wl-paste --type image --watch cliphist store &
 easyeffects --gapplication-service &
 
 # Brightness Power Saving
-brightnessctl s 3% &
+brightnessctl s 2% &

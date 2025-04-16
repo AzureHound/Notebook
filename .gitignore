@@ -2,6 +2,7 @@
 .config/BraveSoftware
 .config/borg
 .config/dconf
+.config/fastanime
 .config/gh
 .config/github-copilot
 .config/gtk-4.0/servers
@@ -14,6 +15,7 @@
 .config/qimgv/savedState.conf
 .config/ripgrep-all
 .config/systemd
+.config/transmission
 .config/whoozle.github.io
 
 .config/gtk-4.0/servers
