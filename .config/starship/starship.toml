@@ -5,18 +5,19 @@ $os \
 $directory\
 $git_branch\
 $git_status\
+$sudo\
+$shell\
 $fill\
-$python\
-$lua\
-$nodejs\
-$golang\
-$haskell\
-$rust\
-$ruby\
-$package\
 $aws\
 $docker_context\
+$golang\
 $jobs\
+$lua\
+$nodejs\
+$python\
+$package\
+$ruby\
+$rust\
 $cmd_duration\
 $line_break\
 $character"""
@@ -40,21 +41,6 @@ Macos = '󰀵'
 Windows = ' '
 SUSE = ' '
 Redhat = '󱄛 '
-
-[time]
-disabled = false
-style = "cyan"
-format = '[$time]($style)'
-time_format = "%T"
-# utc_time_offset = "-5"
-# time_range = "10:00:00-14:00:00"
-
-[character]
-success_symbol = '[➜](green_bold)'
-error_symbol = '[➜](bold red)'
-vimcmd_symbol = "[](green_bold)"
-# vimcmd_visual_symbol = "[](green_bold)"
-# vimcmd_replace_symbol = "[](green_bold)"
 
 [directory]
 style = 'bold fg:dark_blue'
@@ -85,41 +71,27 @@ staged = "${count}"
 deleted = "✘${count}"
 style = 'fg:red'
 
+[sudo]
+style = 'bold blue'
+symbol = '󱍞 '
+disabled = false
+
+[shell]
+fish_indicator = '󰈺 '
+powershell_indicator = '_'
+unknown_indicator = 'mystery shell'
+style = 'cyan bold'
+disabled = true
+
+[character]
+success_symbol = '[➜](green_bold)'
+error_symbol = '[➜](bold red)'
+vimcmd_symbol = "[](green_bold)"
+# vimcmd_visual_symbol = "[](green_bold)"
+# vimcmd_replace_symbol = "[](green_bold)"
+
 [fill]
 symbol = ' '
-
-[python]
-style = 'teal'
-symbol = ' '
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-pyenv_version_name = true
-pyenv_prefix = ''
-
-[lua]
-symbol = ' '
-
-[nodejs]
-style = 'blue'
-symbol = ' '
-
-[golang]
-style = 'blue'
-symbol = ' '
-
-[haskell]
-style = 'blue'
-symbol = ' '
-
-[rust]
-style = 'orange'
-symbol = ' '
-
-[ruby]
-style = 'blue'
-symbol = ' '
-
-[package]
-symbol = '󰏗 '
 
 [aws]
 symbol = ' '
@@ -133,11 +105,54 @@ format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
 
+[golang]
+symbol = ' '
+style = 'blue'
+format = '[${symbol}(${version})]($style)'
+
+[python]
+symbol = ' '
+style = 'teal'
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+pyenv_version_name = true
+pyenv_prefix = ''
+
+[lua]
+symbol = ' '
+style = 'blue'
+format = '[${symbol}(${version})]($style)'
+
+[nodejs]
+symbol = ' '
+style = 'green'
+format = '[${symbol}(${version})]($style)'
+
+[ruby]
+symbol = ' '
+style = 'red'
+format = '[${symbol}(${version})]($style)'
+
+[rust]
+symbol = ' '
+style = 'peach'
+format = '[${symbol}(${version})]($style)'
+
+[package]
+symbol = '󰏗 '
+
 [jobs]
 symbol = ' '
 style = 'red'
 number_threshold = 1
 format = '[$symbol]($style)'
+
+[time]
+disabled = false
+style = "cyan"
+format = '[$time]($style)'
+time_format = "%T"
+# utc_time_offset = "-5"
+# time_range = "10:00:00-14:00:00"
 
 [cmd_duration]
 min_time = 100
@@ -145,7 +160,6 @@ style = 'fg:yellow'
 format = '[$duration]($style)'
 
 # Color palettes
-
 [palettes.catppuccin]
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"
