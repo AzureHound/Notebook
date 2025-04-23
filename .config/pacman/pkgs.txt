@@ -171,6 +171,7 @@ transmission-cli
 trash-cli
 ttf-font-awesome
 ttf-jetbrains-mono-nerd
+ttf-ms-win11-auto
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-common
 ttf-nerd-fonts-symbols-mono
