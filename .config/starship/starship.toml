@@ -114,8 +114,8 @@ format = '[${symbol}(${version})]($style)'
 symbol = ' '
 style = 'teal'
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-pyenv_version_name = true
-pyenv_prefix = ''
+pyenv_version_name = false
+pyenv_prefix = 'pyenv'
 
 [lua]
 symbol = ' '
