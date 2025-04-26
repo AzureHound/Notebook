@@ -54,6 +54,7 @@ gitmux
 glow
 gnome-disk-utility
 gnome-keyring
+gnome-themes-extra
 go
 grim
 gst-plugin-pipewire
@@ -142,6 +143,7 @@ rofi-emoji
 rofi-games
 rofi-wayland
 rust
+sassc
 satty
 scrcpy
 serpl
