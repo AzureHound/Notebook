@@ -1,0 +1,229 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+  "version": 3,
+  "final_space": true,
+  "palette": {
+    "rosewater": "#f4dbd6",
+    "flamingo": "#f0c6c6",
+    "pink": "#f5bde6",
+    "mauve": "#c6a0f6",
+    "red": "#ed8796",
+    "maroon": "#ee99a0",
+    "peach": "#f5a97f",
+    "yellow": "#eed49f",
+    "green": "#a6da95",
+    "green_bold": "#0DFF82",
+    "teal": "#8bd5ca",
+    "sky": "#91d7e3",
+    "sapphire": "#7dc4e4",
+    "blue": "#8aadf4",
+    "lavender": "#b7bdf8",
+    "text": "#cad3f5",
+    "subtext1": "#b8c0e0",
+    "subtext0": "#a5adcb",
+    "overlay2": "#939ab7",
+    "overlay1": "#8087a2",
+    "overlay0": "#6e738d",
+    "surface2": "#5b6078",
+    "surface1": "#494d64",
+    "surface0": "#363a4f",
+    "base": "#24273a",
+    "mantle": "#1e2030",
+    "crust": "#181926"
+  },
+  "secondary_prompt": {
+    "template": "❯ ",
+    "foreground": "p:green_bold",
+    "background": "transparent"
+  },
+  "transient_prompt": {
+    "template": "➜ ",
+    "background": "transparent",
+    "foreground_templates": [
+      "{{if gt .Code 0}}p:red{{end}}",
+      "{{if eq .Code 0}}p:green_bold{{end}}"
+    ]
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "template": "󰣇 ",
+          "foreground": "p:blue",
+          "background": "transparent",
+          "type": "text",
+          "style": "plain"
+        },
+        {
+          "template": "{{ .Path }}",
+          "foreground": "p:subtext0",
+          "background": "transparent",
+          "type": "path",
+          "style": "plain",
+          "properties": {
+            "cache_duration": "none",
+            "style": "full",
+            "mapped_locations": {
+              "/tmp": "/tmp  ",
+              "~/Downloads": "~/Downloads  "
+            }
+          }
+        },
+        {
+          "template": " {{ .HEAD }} ",
+          "foreground": "p:green_bold",
+          "background": "transparent",
+          "type": "git",
+          "style": "plain",
+          "properties": {
+            "branch_icon": " ",
+            "branch_identical_icon": "",
+            "fetch_status": true,
+            "cache_duration": "none"
+          }
+        },
+        {
+          "template": "{{if .Ahead}}↑{{.Ahead}}{{end}}{{if .Behind}}↓{{.Behind}}{{end}}{{- if gt (add .Staging.Added .Staging.Modified) 0 }}{{ add .Staging.Added .Staging.Modified }}{{ end -}}{{- if gt .Working.Modified 0 }}!{{ .Working.Modified }}{{ end -}}{{- if gt .Working.Untracked 0 }}?{{ .Working.Untracked }}{{ end -}}",
+          "foreground": "p:red",
+          "background": "transparent",
+          "type": "git",
+          "style": "plain",
+          "properties": {
+            "commit_icon": "@",
+            "fetch_status": true,
+            "cache_duration": "none"
+          }
+        },
+        {
+          "type": "root",
+          "style": "plain",
+          "properties": {
+            "root_icon": "󱍞 "
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "p:overlay0",
+          "properties": {
+            "display_mode": "files",
+            "fetch_version": true
+          },
+          "style": "plain",
+          "template": " <p:yellow> </> {{.Profile}}{{if .Region}}@{{.Region}}{{end}}",
+          "type": "aws"
+        },
+        {
+          "foreground": "p:overlay0",
+          "properties": {
+            "display_mode": "files",
+            "fetch_version": true
+          },
+          "style": "plain",
+          "template": " <p:sky> </> {{ if .Error }}{{ .Error }}{{ else }}v{{ .Full }}{{ end }}",
+          "type": "go"
+        },
+        {
+          "foreground": "p:overlay0",
+          "properties": {
+            "display_mode": "files",
+            "fetch_version": true
+          },
+          "style": "plain",
+          "template": " <p:maroon>󰬷</> {{ if .Error }}{{ .Error }}{{ else }}v{{ .Full }}{{ end }}",
+          "type": "java"
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "p:overlay0",
+          "properties": {
+            "display_mode": "files",
+            "fetch_package_manager": true,
+            "fetch_version": true,
+            "npm_icon": "<p:green> npm</> ",
+            "yarn_icon": "<p:blue> yarn</> ",
+            "pnpm_icon": "<p:peach> pnpm</> "
+          },
+          "template": "{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}<p:green_bold> </> <p:overlay0>v{{ .Full }}</>",
+          "type": "node"
+        },
+        {
+          "foreground": "p:overlay0",
+          "properties": {
+            "display_mode": "context",
+            "fetch_virtual_env": false
+          },
+          "style": "plain",
+          "template": " <p:teal> </>{{ if .Error }}{{ .Error }}{{ else }}v{{ .Full }}{{ end }}",
+          "type": "python"
+        },
+        {
+          "foreground": "p:overlay0",
+          "properties": {
+            "display_mode": "files",
+            "fetch_version": true
+          },
+          "style": "plain",
+          "template": " <p:red></> {{ if .Error }}{{ .Error }}{{ else }}v{{ .Full }}{{ end }}",
+          "type": "ruby"
+        },
+        {
+          "foreground": "p:overlay0",
+          "properties": {
+            "display_mode": "files",
+            "fetch_version": true
+          },
+          "style": "plain",
+          "template": " <p:peach> </>{{ if .Error }}{{ .Error }}{{ else }}v{{ .Full }}{{ end }}",
+          "type": "rust"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "template": "➜",
+          "background": "transparent",
+          "type": "text",
+          "style": "plain",
+          "foreground_templates": [
+            "{{if gt .Code 0}}p:red{{end}}",
+            "{{if eq .Code 0}}p:green_bold{{end}}"
+          ],
+          "properties": {
+            "cache_duration": "none"
+          }
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "overflow": "hidden",
+      "segments": [
+        {
+          "template": " {{ .FormattedMs }}",
+          "foreground": "p:yellow",
+          "background": "transparent",
+          "type": "executiontime",
+          "style": "plain",
+          "properties": {
+            "cache_duration": "none",
+            "threshold": 100,
+            "style": "round"
+          }
+        }
+      ]
+    }
+  ]
+}

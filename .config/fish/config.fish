@@ -3,5 +3,5 @@ source ~/.config/fish/abbreviations.fish
 source ~/.config/fish/aliases.fish
 
 # Keybinds
-bind \ce 'emoji'
-bind \e\ct 'tv'
+bind \ce emoji
+bind \e\ct tv

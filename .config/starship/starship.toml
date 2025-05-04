@@ -1,7 +1,7 @@
 # 🚀 starship!!
 
 format = """
-$os \
+$os\
 $directory\
 $git_branch\
 $git_status\
@@ -30,7 +30,7 @@ scan_timeout = 30
 command_timeout = 5000
 
 [os]
-format = '[$symbol](blue)'
+format = '[$symbol](blue) '
 disabled = false
 
 [os.symbols]
@@ -43,22 +43,22 @@ SUSE = ' '
 Redhat = '󱄛 '
 
 [directory]
-style = 'bold fg:dark_blue'
+style = 'fg:subtext0'
 format = '[$path ]($style)[$read_only]($read_only_style)'
 truncation_length = 8
 truncation_symbol = '…/'
 fish_style_pwd_dir_length = 1
 truncate_to_repo = false
 read_only_style = '197'
-read_only = '󰌾'
+read_only = '󰌾 '
 
 [git_branch]
 style = 'fg:green_bold'
-symbol = '󰘬 '
+symbol = ' '
 format = '[$symbol$branch ]($style)'
 
 [git_status]
-format = '([$conflicted$ahead_behind$diverged$staged$modified$stashed$renamed$deleted$untracked]($style) )'
+format = '([$conflicted$ahead_behind$diverged$staged$modified$stashed$renamed$untracked$deleted]($style) )'
 conflicted = '=${count}'
 ahead = '↑${count}'
 behind = '↓${count}'
@@ -74,12 +74,11 @@ style = 'fg:red'
 [sudo]
 style = 'bold blue'
 symbol = '󱍞 '
+format = '[$symbol]($style)'
 disabled = false
 
 [shell]
 fish_indicator = '󰈺 '
-powershell_indicator = '_'
-unknown_indicator = 'mystery shell'
 style = 'cyan bold'
 disabled = true
 
@@ -139,6 +138,7 @@ format = '[${symbol}(${version})]($style)'
 
 [package]
 symbol = '󰏗 '
+format = ' [${symbol}(${version})]($style)'
 
 [jobs]
 symbol = ' '
@@ -157,7 +157,7 @@ time_format = "%T"
 [cmd_duration]
 min_time = 100
 style = 'fg:yellow'
-format = '[$duration]($style)'
+format = ' [$duration]($style)'
 
 # Color palettes
 [palettes.catppuccin]

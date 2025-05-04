@@ -74,6 +74,7 @@ intel-media-driver
 intel-ucode
 iwd
 iwgtk
+jelly
 jq
 keepassxc
 keyb
@@ -197,7 +198,6 @@ xdotool
 xorg-server
 xorg-xinit
 yay
-yay-debug
 yazi
 yt-dlp
 zathura-cb

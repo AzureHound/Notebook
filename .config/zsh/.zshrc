@@ -14,6 +14,8 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit light catppuccin/zsh-syntax-highlighting
 zinit light djui/alias-tips
+# zinit ice depth=1
+# zinit light jeffreytse/zsh-vi-mode
 
 # snippets
 zinit snippet OMZP::sudo
@@ -27,7 +29,12 @@ zinit cdreplay -q
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:*' use-fzf-default-opts yes
+# zstyle ':fzf-tab:*' use-fzf-default-opts yes
+zstyle ':fzf-tab:*' fzf-flags  '--pointer='\
+                          '--color=bg+:-1,gutter:-1,spinner:#f4dbd6,hl:#ed8796' \
+                          '--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6' \
+                          '--color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796' \
+                          '--color=selected-bg:#494d64'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --show-symlinks --git-ignore --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a -1 --show-symlinks --git-ignore --icons --color=always $realpath'
 # zstyle ':fzf-tab:*' fzf-command 'ftb-tmux-popup'
@@ -42,6 +49,7 @@ HISTDUP=erase
 # Options
 setopt autocd
 setopt appendhistory
+setopt correct
 setopt share_history
 setopt hist_ignore_dups
 setopt hist_ignore_space
@@ -68,7 +76,7 @@ zshaddhistory() {
 echo -ne "\e[5 q"
 
 # shell integrations
-eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/p10k.toml)"
+eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/pk10k.json)"
 eval "$(atuin init zsh)"
 eval "$(tv init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
