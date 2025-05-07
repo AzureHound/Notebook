@@ -32,7 +32,7 @@ wl-paste --type image --watch cliphist store &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Screen sharing and portals
-"$HOME"/.config/hypr/scripts/screensharing &
+"$HOME"/.config/hypr/scripts/portal &
 # xwaylandvideobridge & # Off when using Vesktop instead of Discord
 
 # Audio
