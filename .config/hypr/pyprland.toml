@@ -34,12 +34,6 @@ lazy = true
 command = "kitty --class scratchpad cava"
 lazy = true
 
-[scratchpads.dash]
-command = "kitty --class scratchpad-large gh dash"
-unfocus = "hide"
-hysteresis = 0.1
-lazy = true
-
 [scratchpads.deshuffle]
 command = "kitty --class scratchpad-large deshuffle.sh"
 unfocus = "hide"
@@ -64,12 +58,6 @@ unfocus = "hide"
 hysteresis = 0.1
 lazy = true
 
-[scratchpads.lazydocker]
-command = "kitty --class scratchpad-large lazydocker"
-unfocus = "hide"
-hysteresis = 0.1
-lazy = true
-
 [scratchpads.neovim]
 command = "kitty --class scratchpad-larger $terminal nvim"
 unfocus = "hide"
@@ -90,6 +78,11 @@ lazy = true
 
 [scratchpads.pipes]
 command = "kitty --class scratchpad-larger bash-pipes"
+lazy = true
+
+[scratchpads.quick-note]
+command = "kitty --class scratchpad-large quick-note"
+unfocus = "hide"
 lazy = true
 
 [scratchpads.superfile]
@@ -133,7 +126,7 @@ hysteresis = 0.1
 lazy = true
 
 [scratchpads.weather]
-command = "kitty --class scratchpad-larger fish -c 'curl \"v2.wttr.in/Agartala?F\"; sleep 120'"
+command = "kitty --class scratchpad-mini fish -c 'gust; sleep 120'"
 lazy = true
 
 [wallpapers]

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Use fzf to select a file or folder from the current directory and its subdirectories
+LOCAL_PATH=$(find "$(pwd)" -type f -o -type d 2>/dev/null | fzf --no-preview --prompt="Local Path: ")
+if [[ -z "$LOCAL_PATH" ]]; then
+  echo "No file or folder selected. Exiting."
+  exit 1
+fi
+
+# Prompt user for remote server details
+read -p "Server IP: " REMOTE_SERVER
+read -p "Directory: " REMOTE_DIR
+
+# Confirm and send the file or folder
+echo "You selected: $LOCAL_PATH"
+echo "Sending $LOCAL_PATH to $REMOTE_SERVER:$REMOTE_DIR"
+rsync -rhPz "$LOCAL_PATH" "$REMOTE_SERVER:$REMOTE_DIR"
+
+# Check if the transfer was successful
+if [[ $? -eq 0 ]]; then
+  echo "Successfull"
+else
+  echo "Failed!"
+fi

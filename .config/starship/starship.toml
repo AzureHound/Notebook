@@ -73,7 +73,7 @@ style = 'fg:red'
 
 [sudo]
 style = 'bold blue'
-symbol = '󱍞 '
+symbol = ' '
 format = '[$symbol]($style)'
 disabled = false
 

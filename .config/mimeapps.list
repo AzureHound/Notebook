@@ -21,6 +21,7 @@ application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 image/webp=qimgv.desktop
+video/quicktime=mpv.desktop
 
 [Added Associations]
 image/png=qimgv.desktop;
@@ -44,3 +45,4 @@ application/xhtml+xml=firefox.desktop;zen.desktop;
 application/x-extension-xhtml=firefox.desktop;zen.desktop;
 application/x-extension-xht=firefox.desktop;zen.desktop;
 image/webp=qimgv.desktop;
+video/quicktime=mpv.desktop;

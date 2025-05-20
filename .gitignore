@@ -1,11 +1,14 @@
 # configs
 .config/BraveSoftware
 .config/borg
+.config/carapace
+.config/cava/shaders
 .config/dconf
 .config/fastanime
 .config/gh
 .config/github-copilot
 .config/gtk-4.0/servers
+.config/gust
 .config/go
 .config/jelly
 .config/keepassxc
@@ -19,6 +22,7 @@
 .config/systemd
 .config/transmission
 .config/whoozle.github.io
+.config/wttr
 
 .config/gtk-4.0/servers
 .config/zsh/.zcompdump
@@ -47,6 +51,9 @@
 
 # Spotify
 .config/spotify
+
+# TT
+.tt/.errors
 
 # OBS Studio
 .config/obs-studio/*

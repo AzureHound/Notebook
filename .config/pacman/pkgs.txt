@@ -6,6 +6,7 @@ android-sdk-platform-tools
 android-tools
 ani-cli
 ani-skip-git
+apple-fonts
 asciiquarium-transparent-git
 atuin
 auto-cpufreq
@@ -24,6 +25,7 @@ btrfs-progs
 carapace-bin
 cava
 cbonsai
+chafa
 chess-tui
 cliphist
 cmake
@@ -40,6 +42,7 @@ eza
 fastanime
 fastfetch
 fd
+ffmpegthumbnailer
 figlet
 firefox
 fish
@@ -66,6 +69,7 @@ hyprfreeze-git
 hypridle
 hyprland
 hyprlock
+hyprpaper
 hyprpicker
 hyprshot
 imagemagick
@@ -125,7 +129,6 @@ pipewire-jack
 pipewire-pulse
 playerctl
 pokemon-colorscripts-git
-polkit-gnome
 polkit-kde-agent
 portal-bin
 powertop
@@ -157,6 +160,7 @@ spotdl
 spotify-launcher
 starship
 superfile
+sushi
 swaync
 swayosd-git
 swww
@@ -185,6 +189,7 @@ vim
 vivid
 vscodium-bin
 vulkan-intel
+webcamize
 wf-recorder
 wget
 wireless_tools

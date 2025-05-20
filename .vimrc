@@ -16,7 +16,7 @@ set guicursor=
 set scrolloff=4
 set smartindent
 set nocursorline
-set relativenumber
+"set relativenumber
 set nocursorcolumn
 set encoding=UTF-8
 set clipboard=unnamedplus

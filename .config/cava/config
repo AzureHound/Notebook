@@ -7,23 +7,23 @@
 ; mode = normal
 
 # Accepts only non-negative values.
-framerate = 75
+framerate = 60
 
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
-;autosens = 1
-;overshoot = 20
+; autosens = 1
+; overshoot = 20
 
 # Manual sensitivity in %. If autosens is enabled, this will only be the initial value.
 # 200 means double height. Accepts only non-negative values.
-;sensitivity = 200
+sensitivity = 70
 
 # The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
-;bars = 0
-bar_width = 3
-;bar_spacing = 1
+bars = 0
+bar_width = 1
+bar_spacing = 1
 # bar_height is only used for output in "noritake" format
 ; bar_height = 32
 
@@ -93,6 +93,14 @@ source = auto
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
 ; method = ncurses
 
+# Orientation of the visualization. Can be 'bottom', 'top', 'left', 'right' or
+# 'horizontal'. Default is 'bottom'. 'left and 'right' are only supported on sdl
+# and ncruses output. 'horizontal' (bars go up and down from center) is only supported
+# on noncurses output.
+# Note: many fonts have weird or missing glyphs for characters used in orientations
+# other than 'bottom', which can make output not look right.
+orientation = horizontal
+
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
 # 'mono' outputs left to right lowest to highest frequencies.
@@ -144,17 +152,18 @@ source = auto
 # background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
 
-gradient = 1
+ gradient = 1
+ # gradient_count = 8
+ gradient_color_1 = '#2C526E' 
+ gradient_color_2 = '#567b95'
+ gradient_color_3 = '#83A6BF'
+ gradient_color_4 = '#DEC386'
+ gradient_color_5 = '#F5DD9D'
+ gradient_color_6 = '#E69AB3'
+ gradient_color_7 = '#F0AAC1'
+ gradient_color_8 = '#F7C3D2'
 
-gradient_color_1 = '#0D0F0D'
-gradient_color_2 = '#93A4B0'
-gradient_color_3 = '#CABFB3'
-gradient_color_4 = '#B6CCDB'
-gradient_color_5 = '#e1eaef'
-gradient_color_6 = '#A4B7C5'
-gradient_color_7 = '#B6CCDB'
-gradient_color_8 = '#e1eaef'
-
+# gradient = 1
 # gradient_color_1 = '#8bd5ca'
 # gradient_color_2 = '#91d7e3'
 # gradient_color_3 = '#7dc4e4'
@@ -164,6 +173,16 @@ gradient_color_8 = '#e1eaef'
 # gradient_color_7 = '#ee99a0'
 # gradient_color_8 = '#ed8796'
 
+# gradient = 1
+# gradient_color_1 = '#0D0F0D'
+# gradient_color_2 = '#93A4B0'
+# gradient_color_3 = '#CABFB3'
+# gradient_color_4 = '#B6CCDB'
+# gradient_color_5 = '#e1eaef'
+# gradient_color_6 = '#A4B7C5'
+# gradient_color_7 = '#B6CCDB'
+# gradient_color_8 = '#e1eaef'
+
 [smoothing]
 
 # Percentage value for integral smoothing. Takes values from 0 - 100.
@@ -172,8 +191,8 @@ gradient_color_8 = '#e1eaef'
 ; integral = 100
 
 # Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable.
-; monstercat = 1
-; waves = 1
+monstercat = 1
+waves = 1
 
 # Set gravity percentage for "drop off". Higher values means bars will drop faster.
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
@@ -188,7 +207,7 @@ gradient_color_8 = '#e1eaef'
 # Noise reduction, float 0 - 1. default 0.77
 # the raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth
 # 1 will be very slow and smooth, 0 will be fast but noisy.
-; noise_reduction = 1
+noise_reduction = 30
 
 
 [eq]
@@ -203,16 +222,3 @@ gradient_color_8 = '#e1eaef'
 ; 3 = 1 # midtone
 ; 4 = 1
 ; 5 = 1 # treble
-
-[color]
-
- gradient = 1
- gradient_count = 8
- gradient_color_1 = '#2C526E' 
- gradient_color_2 = '#567b95'
- gradient_color_3 = '#83A6BF'
- gradient_color_4 = '#DEC386'
- gradient_color_5 = '#F5DD9D'
- gradient_color_6 = '#E69AB3'
- gradient_color_7 = '#F0AAC1'
- gradient_color_8 = '#F7C3D2'

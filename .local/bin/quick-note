@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Define the directory for Quick Notes
+NOTES_DIR=~/Obsidian/Quick\ Notes
+
+# Create the directory if it doesn't exist
+mkdir -p "$NOTES_DIR"
+
+# Generate the file name using the current date and time
+FILE_NAME=$(date '+%Y-%m-%d_%H-%M-%S').md
+FILE_PATH="$NOTES_DIR/$FILE_NAME"
+
+# Create the file and open it with nvim
+nvim "$FILE_PATH"

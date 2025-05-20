@@ -13,7 +13,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit light catppuccin/zsh-syntax-highlighting
-zinit light djui/alias-tips
+# zinit light djui/alias-tips
 # zinit ice depth=1
 # zinit light jeffreytse/zsh-vi-mode
 
@@ -86,7 +86,7 @@ eval "$(register-python-argcomplete pipx)"
 source <(fzf --zsh)
 
 # Color Scripts
-pokemon-colorscripts --no-title -r 1,3,6
+# pokemon-colorscripts --no-title -r 1,3,6
 
 # keybindings
 bindkey -e

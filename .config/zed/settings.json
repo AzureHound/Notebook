@@ -1,29 +1,42 @@
 // Zed settings
 {
   // User Interface
+  "show_user_picture": false,
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Macchiato"
+  },
+  "icon_theme": "Catppuccin Macchiato",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "ui_font_size": 15,
   "buffer_font_family": "JetBrainsMono Nerd Font",
-  "show_user_picture": false,
   "buffer_font_size": 15,
-  "relative_line_numbers": false,
-  "current_line_highlight": "none",
-  "toolbar": {
-    "breadcrumbs": false,
-    "quick_actions": false
-  },
   "tab_bar": {
     "show": false
   },
+  "preview_tabs": {
+    "enabled": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false
+  },
+  "inlay_hints": {
+    "enabled": false
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
   "scrollbar": {
-    "show": "never"
+    "show": "auto"
   },
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Ayu Mirage"
-  },
-
+  "current_line_highlight": "none",
+  "relative_line_numbers": false,
+  "hide_mouse": "on_typing_and_movement",
+  "cursor_shape": "bar",
   // Panels
   "project_panel": {
     "default_width": 300,
@@ -42,9 +55,10 @@
   "outline_panel": {
     "button": false
   },
+  // Terminal
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
-    "dock": "left",
+    "dock": "bottom",
     "copy_on_select": true,
     "shell": {
       "with_arguments": {
@@ -53,7 +67,27 @@
       }
     }
   },
-
+  //Vim
+  "vim_mode": true,
+  "vim": {
+    "cursor_shape": {
+      "normal": "block",
+      "visual": "block",
+      "replace": "underline",
+      "insert": "bar"
+    }
+  },
+  // Assistant
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3-7-sonnet"
+    },
+    "version": "2"
+  },
   // Features
   "git": {
     "git_gutter": "tracked_files",
@@ -62,29 +96,15 @@
       "position": "left"
     }
   },
-
-  //Vim
-  "vim_mode": false,
-
   // Tweaks
   "format_on_save": "on",
   "ensure_final_newline_on_save": false,
-  "remove_trailing_whitespace_on_save": false,
+  "remove_trailing_whitespace_on_save": true,
   "tabs": {
     "show_icons": true,
     "git_status": true,
     "close_position": "right"
   },
-
-  // Assistant
-  "assistant": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
-    },
-    "version": "2"
-  },
-
   // Telemetry
   "telemetry": {
     "diagnostics": false,

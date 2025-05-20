@@ -69,7 +69,9 @@
             "style": "full",
             "mapped_locations": {
               "/tmp": "/tmp  ",
-              "~/Downloads": "~/Downloads  "
+              "~/Desktop": "~/Desktop  ",
+              "~/Downloads": "~/Downloads  ",
+              "~/Documents": "~/Documents  "
             }
           }
         },
@@ -153,7 +155,7 @@
             "yarn_icon": "<p:blue> yarn</> ",
             "pnpm_icon": "<p:peach> pnpm</> "
           },
-          "template": "{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}<p:green_bold> </> <p:overlay0>v{{ .Full }}</>",
+          "template": "{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}<p:green_bold></> <p:overlay0>v{{ .Full }}</>",
           "type": "node"
         },
         {
