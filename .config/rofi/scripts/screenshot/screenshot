@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ "$1" = "--freeze" ]; then
   extra_args="--freeze"
@@ -29,6 +29,6 @@ $window)
   $command -m window
   ;;
 $folder)
-  ~/.config/rofi/scripts/screenshot/screenshot_selection
+  $HOME/.config/rofi/scripts/screenshot/screenshot_selection
   ;;
 esac

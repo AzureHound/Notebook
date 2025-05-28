@@ -1,3 +1,3 @@
-function op --wraps='cd ~/Obsidian' --description 'alias op=cd ~/Obsidian'
-    cd ~/Obsidian/Personal/ $argv
+function op --wraps='cd $HOME/Obsidian' --description 'alias op=cd $HOME/Obsidian'
+    cd $HOME/Obsidian/Personal/ $argv
 end

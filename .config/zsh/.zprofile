@@ -48,22 +48,24 @@ export LS_COLORS="$(vivid generate catppuccin-macchiato)"
 export GPG_TTY="$(tty)"
 
 # FZF
-export FZF_DEFAULT_COMMAND="fd"
+export FZF_DEFAULT_COMMAND="fd --hidden --no-ignore"
 export fzf_fd_opts="--hidden --color=always"
-export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --preview '{$fzf_preview_dir_cmd} {2}'"
-export fzf_preview_dir_cmd="eza --long --header --icons --all --color=always --group-directories-first --hyperlink"
-export FZF_DEFAULT_OPTS="--height=90% --layout=reverse --info=inline --border rounded --pointer='' --margin=1 --padding=1 \
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS"
+export FZF_DEFAULT_OPTS="--height=100% --info=right --border=rounded --pointer='' --marker='⇒' --margin=1 --padding=1 \
 --color=bg+:-1,gutter:-1,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
 --color=selected-bg:#494d64 \
---bind 'ctrl-u:preview-half-page-up' \
---bind 'ctrl-d:preview-half-page-down' \
---bind 'ctrl-y:execute-silent(printf {} | cut -f 2- | wl-copy --trim-newline)' \
---multi"
+--bind='ctrl-u:preview-half-page-up' \
+--bind='ctrl-d:preview-half-page-down' \
+--bind='ctrl-y:execute-silent(printf {} | cut -f 2- | wl-copy --trim-newline)' \
+--multi --prompt='󰥨 Search: '"
 
 # MANPATH
 export MANPATH="/usr/share/man:/usr/local/man:/usr/local/share/man"
+
+# Bin
+export PATH="$HOME/.local/bin:$PATH"
 
 # NPM
 NPM_PACKAGES="${HOME}/.npm-packages"

@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+CONFIG_DIR=~/.config/wttr
+CONFIG_FILE=$CONFIG_DIR/config
+
+# Create config directory and file if they don't exist
+if [ ! -d "$CONFIG_DIR" ]; then
+  mkdir -p "$CONFIG_DIR"
+  echo "Created config directory: $CONFIG_DIR"
+fi
+
+# Function to save city and unit to config
+save_to_config() {
+  local city="$1"
+  local unit="$2"
+  echo "CITY=\"$city\"" >"$CONFIG_FILE"
+  echo "UNIT=\"$unit\"" >>"$CONFIG_FILE"
+  echo "Configuration saved to $CONFIG_FILE"
+}
+
+# Check if config file exists and source it
+if [ -f "$CONFIG_FILE" ]; then
+  source "$CONFIG_FILE"
+else
+  echo "No configuration file found"
+fi
+
+# Use command line arguments if provided
+if [ -n "$1" ]; then
+  CITY="$1"
+fi
+if [ -n "$2" ]; then
+  UNIT="$2"
+fi
+
+# Prompt for city if not specified in args or config
+if [ -z "$CITY" ]; then
+  echo -n "Enter city name: "
+  read CITY
+
+  # Prompt for temperature unit
+  while true; do
+    echo -n "Choose temperature unit (C for Celsius, F for Fahrenheit): "
+    read UNIT
+    UNIT=$(echo "$UNIT" | tr '[:lower:]' '[:upper:]')
+
+    if [ "$UNIT" == "C" ] || [ "$UNIT" == "F" ]; then
+      break
+    else
+      echo "Invalid input. Please enter 'C' or 'F'."
+    fi
+  done
+
+  # Save to config
+  save_to_config "$CITY" "$UNIT"
+fi
+
+# Default to F if unit not specified (should not happen with prompting)
+UNIT=${UNIT:-"F"}
+
+# Fetch weather info using wttr.in with proper formatting (no gap between city and unit)
+curl -s "v2.wttr.in/$CITY?$UNIT"
+
+# Check if curl was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Failed to fetch weather data."
+  exit 1
+fi

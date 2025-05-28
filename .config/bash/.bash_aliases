@@ -11,6 +11,5 @@ alias rg='rg -i'
 alias preview='kitten icat'
 alias glog='git log --oneline --graph --all'
 alias gen='tgpt -i'
-alias ssh="kitten ssh"
 alias powertop='sudo powertop'
 alias zed='zeditor'

@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Use fzf to select a file or folder from the current directory and its subdirectories
-LOCAL_PATH=$(find "$(pwd)" -type f -o -type d 2>/dev/null | fzf --no-preview --prompt="Local Path: ")
+LOCAL_PATH=$(find "$(pwd)" -type f -o -type d 2>/dev/null | fzf --prompt="󰥨 Local Path: ")
 if [[ -z "$LOCAL_PATH" ]]; then
   echo "No file or folder selected. Exiting."
   exit 1

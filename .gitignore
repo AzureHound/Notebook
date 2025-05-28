@@ -2,17 +2,19 @@
 .config/BraveSoftware
 .config/borg
 .config/carapace
-.config/cava/shaders
+.config/cava
 .config/dconf
 .config/fastanime
 .config/gh
 .config/github-copilot
-.config/gtk-4.0/servers
-.config/gust
 .config/go
+.config/go-attend
+.config/gust
 .config/jelly
+.config/jftui
 .config/keepassxc
 .config/libreoffice
+.config/mpd
 .config/nushell
 .config/obsidian
 .config/pika-backup
@@ -25,8 +27,6 @@
 .config/wttr
 
 .config/gtk-4.0/servers
-.config/zsh/.zcompdump
-
 .config/electron-builder.json
 .config/QtProject.conf
 .config/pavucontrol.ini
@@ -46,18 +46,18 @@
 .config/yazi/plugins
 .config/yazi/package.toml
 
-# Others
+# Bin
 .local/bin/spotdl
+
+# OBS Studio
+.config/obs-studio/*
+!.config/obs-studio/themes
 
 # Spotify
 .config/spotify
 
 # TT
 .tt/.errors
-
-# OBS Studio
-.config/obs-studio/*
-!.config/obs-studio/themes
 
 # VSCodium
 .config/VSCodium

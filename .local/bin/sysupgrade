@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+# Colors
+YELLOW="\e[33m"
+BLUE="\e[34m"
+GREEN="\e[32m"
+CYAN="\e[36m"
+BRCYAN="\e[96m"
+RED="\e[31m"
+RESET="\e[0m"
+
+start_time=$(date +%s)
+
+echo -e "\n${YELLOW}Yay ${BLUE}󰐱 ${RESET}\n"
+yay -Syu
+yay -Qeq >$HOME/.config/pacman/pkgs.txt
+yay -Scc
+
+echo -e "\n${YELLOW}Pacman ${GREEN}󰮯 ${RESET}\n"
+# sudo pacman -Syu
+deleteOrphans
+
+echo -e "\n${YELLOW}Homebrew 🍺${RESET}\n"
+brew update
+brew upgrade
+brew autoremove
+brew bundle dump --force --file=$HOME/.config/brew/Brewfile
+
+echo -e "\n${YELLOW}Flatpak ${BRCYAN} ${RESET}\n"
+flatpak update
+flatpak uninstall --unused
+flatpak list --columns=application >$HOME/.config/flatpak/flatpaks.txt
+
+echo -e "\n${YELLOW}Hyprland ${BLUE} ${RESET}\n"
+hyprpm update
+
+echo -e "\n${YELLOW}Fisher 🐠${RESET}\n"
+fish -c "fisher update"
+fish -c "fish_update_completions"
+
+echo -e "\n${YELLOW}Zinit ${GREEN}󱐋 ${RESET}\n"
+zsh -i -c 'zinit self-update && zinit update'
+
+echo -e "\n${YELLOW}Yazi 📁${RESET}\n"
+ya pack -u
+
+echo -e "\n${BLUE}Pipx  ${RESET}\n"
+pipx upgrade-all
+
+end_time=$(date +%s)
+duration=$((end_time - start_time))
+minutes=$((duration / 60))
+seconds=$((duration % 60))
+
+echo -e "\n${CYAN}System Upgraded & Backed Up 👍${RESET}"
+if [ $minutes -eq 0 ]; then
+  echo -e "${RED}Took $seconds sec${RESET}"
+else
+  echo -e "${RED}Took $minutes min $seconds sec${RESET}"
+fi

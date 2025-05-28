@@ -1,6 +1,6 @@
-source ~/.config/fish/user_variables.fish
-source ~/.config/fish/abbreviations.fish
-source ~/.config/fish/aliases.fish
+source $HOME/.config/fish/user_variables.fish
+source $HOME/.config/fish/abbreviations.fish
+source $HOME/.config/fish/aliases.fish
 
 # Keybinds
 bind \ce emoji

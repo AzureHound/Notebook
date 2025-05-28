@@ -102,6 +102,8 @@ lsd
 luarocks
 ly
 meson
+mpc
+mpd
 mpv-sponsorblock-minimal-git
 nautilus
 navi
@@ -143,6 +145,7 @@ qt6ct
 reflector
 ripgrep
 ripgrep-all
+rmpc
 rofi-emoji
 rofi-games
 rofi-wayland

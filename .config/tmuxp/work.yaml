@@ -1,4 +1,4 @@
-start_directory: ~/
+start_directory: $HOME/
 session_name: Work
 windows:
   - layout: main-vertical #tiled

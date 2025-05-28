@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 screenshots_dir=$HOME/Pictures/Screenshots
 theme="$HOME/.config/rofi/scripts/wallpaper/style.rasi"

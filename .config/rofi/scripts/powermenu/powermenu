@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # variables
 uptime="$(uptime -p | sed -e 's/up //g')"
@@ -14,7 +14,7 @@ rofi_cmd() {
   rofi -dmenu \
     -p "Uptime: $uptime" \
     -mesg "Uptime: $uptime" \
-    -theme ~/.config/rofi/scripts/powermenu/style.rasi
+    -theme $HOME/.config/rofi/scripts/powermenu/style.rasi
 }
 
 confirm_cmd() {
@@ -26,7 +26,7 @@ confirm_cmd() {
     -dmenu \
     -p 'Confirmation' \
     -mesg 'Are you sure?' \
-    -theme ~/.config/rofi/scripts/powermenu/style.rasi
+    -theme $HOME/.config/rofi/scripts/powermenu/style.rasi
 }
 
 confirm_exit() {

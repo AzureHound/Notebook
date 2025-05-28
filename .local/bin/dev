@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Constants
 onefetch="onefetch -d churn contributors --no-color-palette --no-title"

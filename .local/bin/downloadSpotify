@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 notify() {
   notify-send "Spotdl Sync" "$1" --icon=spotify --app-name=Spotify

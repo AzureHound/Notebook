@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Fuzzy search Git branches in a repo
 # Looks for local and remote branches
@@ -10,7 +10,7 @@ function fsb() {
   branches=$(git branch --all | awk 'tolower($0) ~ /'"$pattern"'/')
 
   # Use fzf to fuzzy search and pick a branch
-  branch=$(echo "$branches" | fzf-tmux -p --reverse -1 -0 +m --no-preview)
+  branch=$(echo "$branches" | fzf-tmux -p --reverse -1 -0 +m)
 
   # If no branch is selected, print a message and return
   if [ -z "$branch" ]; then

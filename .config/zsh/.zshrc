@@ -22,8 +22,8 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
 # load completions
-autoload -Uz compinit && compinit
-
+autoload -Uz compinit
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump
 zinit cdreplay -q
 
 # Completion styling
@@ -37,11 +37,9 @@ zstyle ':fzf-tab:*' fzf-flags  '--pointer='\
                           '--color=selected-bg:#494d64'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -a -1 --show-symlinks --git-ignore --icons --color=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -a -1 --show-symlinks --git-ignore --icons --color=always $realpath'
-# zstyle ':fzf-tab:*' fzf-command 'ftb-tmux-popup'
-# zstyle ':fzf-tab:*' popup-min-size 80 12
 
 # History
-HISTFILE=$XDG_CACHE_HOME/zsh_history
+HISTFILE=$XDG_CACHE_HOME/zsh/zsh_history
 SAVEHIST=10000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -74,6 +72,17 @@ zshaddhistory() {
 
 # I-beam cursor
 echo -ne "\e[5 q"
+
+# Exiting vim/neovim cursor
+function vim() {
+  command vim "$@"
+  echo -ne '\e[5 q'
+}
+
+function nvim() {
+  command nvim "$@"
+  echo -ne '\e[5 q'
+}
 
 # shell integrations
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/pk10k.json)"

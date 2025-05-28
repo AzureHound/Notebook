@@ -27,6 +27,23 @@ export SUDO_EDITOR="vim"
 # vivid
 export LS_COLORS="$(vivid generate catppuccin-macchiato)"
 
+# init
+eval "$(fzf --bash)"
+
+# FZF
+export FZF_DEFAULT_COMMAND="fd --hidden --no-ignore"
+export fzf_fd_opts="--hidden --color=always"
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS"
+export FZF_DEFAULT_OPTS="--height=100% --info=right --border=rounded --pointer='' --marker='⇒' --margin=1 --padding=1 \
+--color=bg+:-1,gutter:-1,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+--color=selected-bg:#494d64 \
+--bind='ctrl-u:preview-half-page-up' \
+--bind='ctrl-d:preview-half-page-down' \
+--bind='ctrl-y:execute-silent(printf {} | cut -f 2- | wl-copy --trim-newline)' \
+--multi --prompt='󰥨 Search: '"
+
 # yazi
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd

@@ -2,7 +2,7 @@
 --no-check-certificate
 
 # Download directory
--o "~/Videos/yt-dlp/%(playlist|)s/%(playlist_index&{} - |)s%(title)s [%(id)s].%(ext)s"
+-o "$HOME/Videos/yt-dlp/%(playlist|)s/%(playlist_index&{} - |)s%(title)s [%(id)s].%(ext)s"
 
 # -x # Always extract audio
 --no-playlist

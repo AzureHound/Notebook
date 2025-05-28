@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function commits() {
   git -c color.ui=always log --graph --color=always \

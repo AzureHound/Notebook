@@ -7,7 +7,7 @@ configuration {
   scroll-method: 0;
   normalize-match: true;
   show-icons: true;
-  icon-theme: "Catppuccin-SE";
+  icon-theme: "Adwaita";
   font: "JetBrainsMono Nerd Font 10";
   steal-focus: false;
   hover-select: true;
@@ -60,7 +60,7 @@ configuration {
   window-thumbnail: false;
 
   // History and Sorting
-  disable-history: false;
+  disable-history: true;
   sorting-method: "fzf";
   max-history-size: 25;
 

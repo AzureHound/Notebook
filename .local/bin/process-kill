@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+# Check if fzf is installed
+if ! command -v fzf &> /dev/null; then
+    echo "fzf is not installed. Please install it with 'pacman -S fzf'"
+    exit 1
+fi
+
+# Function to kill the selected process
+kill_process() {
+    if [ "$1" != "" ]; then
+        # Extract PID from the selected process
+        PID=$(echo "$1" | awk '{print $2}')
+        
+        # Confirm before killing
+        echo "Killing process $PID: $(echo "$1" | awk '{for(i=11;i<=NF;++i)print $i}')"
+        kill -9 "$PID"
+        
+        echo "Process $PID killed successfully."
+    else
+        echo "No process selected."
+    fi
+}
+
+# Get process list excluding the ps command itself, this script, and fzf
+selected=$(ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,comm:50,cmd --sort=-%cpu | 
+           grep -v " ps -eo" |
+           grep -v "fzf " |
+           grep -v "kill-process.sh" |
+           fzf --header="User       PID  %CPU  %MEM    VSZ   RSS TTY      STAT START   TIME Command" \
+               --multi \
+               --height=80% \
+               --layout=reverse \
+               --border \
+               --preview="echo {} | awk '{print \$2}' | xargs -I{} ps -p {} -o pid,ppid,cmd -ww --no-headers | cat" \
+               --preview-window=down:3:wrap)
+
+# If user selected multiple processes
+if [[ $(echo "$selected" | wc -l) -gt 1 ]]; then
+    echo "Selected processes:"
+    echo "$selected" | while read -r proc; do
+        echo "$(echo "$proc" | awk '{print $2}') : $(echo "$proc" | awk '{for(i=11;i<=NF;++i)print $i}')"
+    done
+    
+    read -r -p "Are you sure you want to kill these processes? (y/n) " confirm
+    if [[ "$confirm" == [yY] ]]; then
+        echo "$selected" | while read -r proc; do
+            kill_process "$proc"
+        done
+    else
+        echo "Operation cancelled."
+    fi
+else
+    kill_process "$selected"
+fi
