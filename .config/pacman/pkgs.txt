@@ -69,6 +69,7 @@ hyprfreeze-git
 hypridle
 hyprland
 hyprlock
+hyprls-git
 hyprpaper
 hyprpicker
 hyprshot
@@ -106,6 +107,7 @@ mpc
 mpd
 mpv-sponsorblock-minimal-git
 nautilus
+nautilus-image-converter
 navi
 neovim
 networkmanager

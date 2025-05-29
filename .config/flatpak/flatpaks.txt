@@ -10,7 +10,6 @@ org.freedesktop.Platform.VAAPI.Intel
 org.freedesktop.Platform.ffmpeg-full
 org.freedesktop.Platform.openh264
 org.gnome.Calculator
-org.gnome.NetworkDisplays
 org.gnome.Platform
 org.gnome.Platform
 org.gnome.gitlab.YaLTeR.Identity
