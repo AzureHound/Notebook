@@ -22,8 +22,8 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
 # load completions
-autoload -Uz compinit
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump
+[[ -d "$XDG_CACHE_HOME/zsh" ]] || mkdir -p "$XDG_CACHE_HOME/zsh"
+autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # Completion styling

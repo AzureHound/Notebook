@@ -11,7 +11,7 @@ code_syntax_highlight = "catppuccin-macchiato"
 
 # ========= Border =========
 file_panel_border = "#6e738d" # Overlay0
-sidebar_border = "#6e738d"    # Base
+sidebar_border = "#24273a"    # Base
 footer_border = "#6e738d"     # Overlay0
 
 # ========= Border Active =========

@@ -173,12 +173,14 @@ tailscale
 television
 tesseract
 tesseract-data-eng
+tgpt
 thunderbird
 tint-tetris
 tmux
 tmuxp
 transmission-cli
 trash-cli
+tt
 ttf-font-awesome
 ttf-jetbrains-mono-nerd
 ttf-ms-win11-auto

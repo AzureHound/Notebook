@@ -10,7 +10,7 @@ command = "kitty --class scratchpad-larger asciiquarium -t"
 lazy = true
 
 [scratchpads.bluetui]
-command = "kitty --class scratchpad bluetui"
+command = "kitty --class scratchpad-medium bluetui"
 unfocus = "hide"
 hysteresis = 0.1
 lazy = true
@@ -121,7 +121,7 @@ hysteresis = 0.1
 lazy = true
 
 [scratchpads.weather]
-command = "kitty --class scratchpad-mini fish -c 'gust; sleep 120'"
+command = "kitty --class scratchpad-medium fish -c 'gust; sleep 120'"
 lazy = true
 
 [wallpapers]

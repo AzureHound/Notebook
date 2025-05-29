@@ -59,7 +59,7 @@ fi
 UNIT=${UNIT:-"F"}
 
 # Fetch weather info using wttr.in with proper formatting (no gap between city and unit)
-curl -s "v2.wttr.in/$CITY?$UNIT"
+curl -s "v2.wttr.in/$CITY?F$UNIT"
 
 # Check if curl was successful
 if [ $? -ne 0 ]; then
