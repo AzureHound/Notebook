@@ -1,5 +1,5 @@
 (defcfg
-  linux-dev /dev/input/by-id/usb-HP__Inc_HyperX_Alloy_Origins_60-event-kbd
+  linux-dev /dev/input/event2
   linux-continue-if-no-devs-found true
   process-unmapped-keys yes
 )
