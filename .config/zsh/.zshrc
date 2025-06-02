@@ -19,13 +19,13 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 # zinit light jeffreytse/zsh-vi-mode
 
 # Snippets
-zinit snippet OMZP::sudo
-zinit snippet OMZP::command-not-found
 zinit snippet OMZP::archlinux
+zinit snippet OMZP::command-not-found
 zinit snippet OMZP::direnv
 zinit snippet OMZP::man
 zinit snippet OMZP::node
 zinit snippet OMZP::python
+zinit snippet OMZP::sudo
 zinit snippet OMZP::uv
 
 # Load completions

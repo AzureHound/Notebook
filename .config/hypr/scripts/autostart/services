@@ -22,7 +22,7 @@ hyprsunset &
 # Notify connecting & disconnecting devices
 # devify &
 
-# Screen lock idle daemon
+# Screen Lock Idle Daemon
 hypridle &
 
 # Trackpad gestures

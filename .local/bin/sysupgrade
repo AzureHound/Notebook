@@ -26,12 +26,12 @@ brew upgrade
 brew autoremove
 brew bundle dump --force --file=$HOME/.config/brew/Brewfile
 
-echo -e "\n${YELLOW}Flatpak ${BRCYAN} ${RESET}\n"
+echo -e "\n${YELLOW}Flatpak 󰏖 ${BRCYAN} ${RESET}\n"
 flatpak update
 flatpak uninstall --unused
 flatpak list --columns=application >$HOME/.config/flatpak/flatpaks.txt
 
-echo -e "\n${YELLOW}Hyprland ${BLUE} ${RESET}\n"
+echo -e "\n${YELLOW}Hyprland  ${BLUE} ${RESET}\n"
 hyprpm update
 
 echo -e "\n${YELLOW}Fisher 🐠${RESET}\n"
