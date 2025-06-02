@@ -1,11 +1,11 @@
 # DO NOT EDIT! This file will be overwritten by nwg-look.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "$HOME/.gtkrc-2.0.mine"
-#gtk-theme-name="Catppuccin-Macchiato-Standard-Lavender-Dark"
-#gtk-icon-theme-name="Catppuccin-SE"
+include "$HOME/.gtkrc-2.0"
+gtk-theme-name="Catppuccin-Macchiato-Standard-Lavender-Dark"
+gtk-icon-theme-name="Adwaita"
 gtk-font-name="JetBrainsMono Nerd Font 10"
-#gtk-cursor-theme-name="Catppuccin-Macchiato-Dark-Cursors"
+gtk-cursor-theme-name="Bibata-Modern-Ice"
 gtk-cursor-theme-size=24
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR

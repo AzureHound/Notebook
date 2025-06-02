@@ -178,7 +178,7 @@ require("yatline-githead"):setup({
 
 require("git"):setup()
 
-require("eza-preview"):setup({})
+-- require("eza-preview"):setup({})
 
 -- Function
 function Linemode:size_and_mtime()

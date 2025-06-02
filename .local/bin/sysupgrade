@@ -42,7 +42,7 @@ echo -e "\n${YELLOW}Zinit ${GREEN}󱐋 ${RESET}\n"
 zsh -i -c 'zinit self-update && zinit update'
 
 echo -e "\n${YELLOW}Yazi 📁${RESET}\n"
-ya pack -u
+ya pkg upgrade
 
 echo -e "\n${BLUE}Pipx  ${RESET}\n"
 pipx upgrade-all

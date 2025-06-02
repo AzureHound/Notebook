@@ -31,11 +31,11 @@ export VISUAL="$EDITOR"
 export SUDO_EDITOR="vim"
 
 # Init
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(atuin init bash)"
 eval "$(fzf --bash)"
 # eval "$(starship init bash)"
 eval "$(zoxide init --cmd cd bash)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # FZF
 export FZF_DEFAULT_COMMAND="fd --hidden --no-ignore"

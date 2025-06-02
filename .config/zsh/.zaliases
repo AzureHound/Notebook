@@ -1,7 +1,7 @@
 # aliases
 alias .='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ..='cd ../..'
+alias ...='cd ../../..'
 alias c='clear'
 
 alias la='eza -a --icons'
