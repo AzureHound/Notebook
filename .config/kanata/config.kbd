@@ -1,0 +1,13 @@
+(defcfg
+  linux-dev /dev/input/by-id/usb-HP__Inc_HyperX_Alloy_Origins_60-event-kbd
+  linux-continue-if-no-devs-found true
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps
+)
+
+(deflayer base
+  (tap-hold-press 1 200 caps (multi lsft lctl lmet lalt))
+)

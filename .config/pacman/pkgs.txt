@@ -7,6 +7,7 @@ android-tools
 ani-cli
 ani-skip-git
 apple-fonts
+asciinema
 asciiquarium-transparent-git
 atuin
 auto-cpufreq
@@ -15,6 +16,7 @@ base
 base-devel
 bash-pipes
 bat
+bc
 bibata-cursor-theme-bin
 bluetui
 bluez
@@ -34,6 +36,7 @@ cpio
 ddcutil
 devify
 dipc
+direnv
 dua-cli
 duf
 easyeffects
@@ -72,7 +75,9 @@ hyprlock
 hyprls-git
 hyprpaper
 hyprpicker
+hyprpolkitagent
 hyprshot
+hyprsunset
 imagemagick
 intel-gpu-tools
 intel-media-driver
@@ -81,6 +86,7 @@ iwd
 iwgtk
 jelly
 jq
+kanata
 keepassxc
 keyb
 kitty
@@ -91,6 +97,7 @@ lazynpm
 less
 libfprint
 libinput-gestures
+libmediainfo
 libpulse
 libva-intel-driver
 libva-utils
@@ -102,6 +109,7 @@ lowfi
 lsd
 luarocks
 ly
+mediainfo
 meson
 mpc
 mpd
@@ -109,6 +117,7 @@ mpv-sponsorblock-minimal-git
 nautilus
 nautilus-image-converter
 navi
+neovide
 neovim
 networkmanager
 nodejs
@@ -136,6 +145,7 @@ pokemon-colorscripts-git
 polkit-kde-agent
 portal-bin
 powertop
+presenterm
 pyprland
 python-pip
 python-pipx
@@ -156,6 +166,7 @@ sassc
 satty
 scrcpy
 serpl
+silicon
 slurp
 smartmontools
 sof-firmware
@@ -199,6 +210,7 @@ vulkan-intel
 webcamize
 wf-recorder
 wget
+wiki-tui
 wireless_tools
 wireplumber
 wmctrl

@@ -1,6 +1,6 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
+[mgr]
 ratio = [1, 4, 3]
 sort_by = "natural"
 sort_dir_first = true
@@ -8,9 +8,19 @@ show_hidden = true
 sort_sensitive = false
 linemode = "size"
 show_symlink = true
+scrolloff = 5
+prepend_keymap = [
+    # glow.yazi
+    { on = ["<C-e>"], run = "seek 5" },
+    { on = ["<C-y>"], run = "seek -5" },
+    { on = [ "E" ], run = "plugin eza-preview",  desc = "Toggle tree/list dir preview" },
+    { on = [ "-" ], run = "plugin eza-preview --args='--inc-level'", desc = "Increment tree level" },
+    { on = [ "_" ], run = "plugin eza-preview --args='--dec-level'", desc = "Decrement tree level" },
+    { on = [ "$" ], run = "plugin eza-preview --args='--toggle-follow-symlinks'", desc = "Toggle tree follow symlinks" },
+]
 
 [preview]
-wrap = "no"
+wrap = "yes"
 
 [input]
 cursor_blink = true
@@ -43,20 +53,17 @@ document = [
 image = [
   { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
   { run = 'qimgv "$@"', orphan = true, desc = "qimgv", for = "linux" },
-  # { run = 'krita "$@"', orphan = true, desc = "krita", for = "linux" },
   { run = 'satty --filename "$@"', orphan = true, desc = "satty", for = "linux" },
-]
-
-video = [
-  { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-  { run = 'mpv "$@"', orphan = true, desc = "mpv", for = "linux" },
-  # { run = 'vlc "$@"', orphan = true, desc = "vlc", for = "linux" },
 ]
 
 audio = [
   { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
   { run = 'mpv "$@"', orphan = true, desc = "mpv", for = "linux" },
-  # { run = 'vlc "$@"', orphan = true, desc = "vlc", for = "linux" },
+]
+
+video = [
+  { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
+  { run = 'mpv "$@"', orphan = true, desc = "mpv", for = "linux" },
 ]
 
 fallback = [
@@ -76,10 +83,10 @@ rules = [
   { mime = "application/json", use = "text" },
 
   { mime = "application/zip", use = "archive" },
+  { mime = "application/gzip", use = "archive" },
+  { mime = "application/x-bzip", use = "archive" },
+  { mime = "application/x-bzip2", use = "archive" },
   { mime = "application/x-tar", use = "archive" },
-  # { mime = "application/gzip", use = "archive" },
-  # { mime = "application/x-bzip", use = "archive" },
-  # { mime = "application/x-bzip2", use = "archive" },
   { mime = "application/x-7z-compressed", use = "archive" },
   { mime = "application/x-rar", use = "archive" },
   { mime = "application/pdf", use = "document" },
@@ -98,3 +105,15 @@ run = "git"
 id = "git"
 name = "*/"
 run = "git"
+
+[plugin]
+  prepend_preloaders = [
+    { mime = "{audio,video,image}/*", run = "mediainfo" },
+    { mime = "application/subrip", run = "mediainfo" },
+  ]
+  prepend_previewers = [
+    { name = "*/", run = "eza-preview" },
+    { name = "*.md", run = "glow" },
+    { mime = "{audio,video,image}/*", run = "mediainfo"},
+    { mime = "application/subrip", run = "mediainfo" },
+  ]

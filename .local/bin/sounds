@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Start MPD
+if ! pgrep -x "mpd" >/dev/null; then
+  mpd
+fi
+
+# Kill MPD on exit
+trap 'pkill -x mpd' EXIT
+
+# Start RMPC in foreground
+rmpc

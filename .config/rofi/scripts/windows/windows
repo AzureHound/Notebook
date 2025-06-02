@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+rofi -modi window -show window -theme $HOME/.config/rofi/scripts/windows/style.rasi

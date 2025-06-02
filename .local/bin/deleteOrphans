@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo pacman -Qtdq | sudo pacman -Rns -
+pacman -Qtdq >/dev/null && sudo pacman -Qtdq | sudo pacman -Rns -

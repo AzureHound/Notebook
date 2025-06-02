@@ -30,17 +30,24 @@ scan_timeout = 30
 command_timeout = 5000
 
 [os]
-format = '[$symbol](blue) '
+format = '[$symbol]($style) '
 disabled = false
 
 [os.symbols]
-Arch = '󰣇'
-Debian = ' '
-Ubuntu = ' '
-Macos = '󰀵'
-Windows = ' '
-SUSE = ' '
-Redhat = '󱄛 '
+Arch = "[󰣇](fg:blue)"
+Debian = "[󰣚](fg:#d70a53)"
+Ubuntu = "[](fg:#E95420)"
+Macos = "[](fg:white)"
+Windows = "[󰍲](fg:#0078d7)"
+SUSE = "[](fg:#73ba25)"
+Redhat = "[󱄛](fg:#ee0000)"
+Raspbian = "[󰐿](fg:#C51A4A)"
+
+[username]
+show_always = true
+style_user = "fg:text"
+style_root = "fg:text"
+format = '[ $user ]($style)'
 
 [directory]
 style = 'fg:subtext0'
@@ -52,28 +59,18 @@ truncate_to_repo = false
 read_only_style = '197'
 read_only = '󰌾 '
 
-[git_branch]
-style = 'fg:green_bold'
-symbol = ' '
-format = '[$symbol$branch ]($style)'
-
-[git_status]
-format = '([$conflicted$ahead_behind$diverged$staged$modified$stashed$renamed$untracked$deleted]($style) )'
-conflicted = '=${count}'
-ahead = '↑${count}'
-behind = '↓${count}'
-diverged = '⇕↑${ahead_count}↓${behind_count}'
-untracked = '?${count}'
-stashed = '●${count}'
-modified = '!${count}'
-renamed = '>${count}'
-staged = "${count}"
-deleted = "✘${count}"
-style = 'fg:red'
+[directory.substitutions]
+"Desktop" = "Desktop  "
+"Documents" = "Documents 󰈙"
+"Downloads" = "Downloads  "
+"Music" = "Music 󰎋"
+"Pictures" = "Pictures  "
+"Developer" = "Developer 󰲋 "
+"/tmp" = "/tmp  "
 
 [sudo]
 style = 'bold blue'
-symbol = ' '
+symbol = '💀'
 format = '[$symbol]($style)'
 disabled = false
 
@@ -82,15 +79,20 @@ fish_indicator = '󰈺 '
 style = 'cyan bold'
 disabled = true
 
+[fill]
+symbol = ' '
+
+[cmd_duration]
+min_time = 100
+style = 'fg:yellow'
+format = ' [$duration]($style)'
+
 [character]
 success_symbol = '[➜](green_bold)'
 error_symbol = '[➜](bold red)'
 vimcmd_symbol = "[](green_bold)"
 # vimcmd_visual_symbol = "[](green_bold)"
 # vimcmd_replace_symbol = "[](green_bold)"
-
-[fill]
-symbol = ' '
 
 [aws]
 symbol = ' '
@@ -104,17 +106,35 @@ format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
 
+[git_branch]
+style = 'fg:green_bold'
+symbol = ' '
+format = '[$symbol$branch ]($style)'
+
+[git_status]
+format = '([$conflicted$ahead_behind$diverged$staged$stashed$renamed$modified$untracked$deleted]($style) )'
+conflicted = '=${count}'
+ahead = '↑${count}'
+behind = '↓${count}'
+diverged = '⇕↑${ahead_count}↓${behind_count}'
+untracked = '?${count}'
+stashed = '●${count}'
+modified = '!${count}'
+renamed = '>${count}'
+staged = "${count}"
+deleted = "✘${count}"
+style = 'fg:red'
+
 [golang]
 symbol = ' '
 style = 'blue'
 format = '[${symbol}(${version})]($style)'
 
-[python]
-symbol = ' '
-style = 'teal'
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-pyenv_version_name = false
-pyenv_prefix = 'pyenv'
+[jobs]
+symbol = ' '
+style = 'red'
+number_threshold = 1
+format = '[$symbol]($style)'
 
 [lua]
 symbol = ' '
@@ -126,6 +146,17 @@ symbol = ' '
 style = 'green'
 format = '[${symbol}(${version})]($style)'
 
+[package]
+symbol = '󰏗 '
+format = ' [${symbol}(${version})]($style)'
+
+[python]
+symbol = ' '
+style = 'teal'
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+pyenv_version_name = false
+pyenv_prefix = 'pyenv'
+
 [ruby]
 symbol = ' '
 style = 'red'
@@ -136,16 +167,6 @@ symbol = ' '
 style = 'peach'
 format = '[${symbol}(${version})]($style)'
 
-[package]
-symbol = '󰏗 '
-format = ' [${symbol}(${version})]($style)'
-
-[jobs]
-symbol = ' '
-style = 'red'
-number_threshold = 1
-format = '[$symbol]($style)'
-
 [time]
 disabled = false
 style = "cyan"
@@ -153,11 +174,6 @@ format = '[$time]($style)'
 time_format = "%T"
 # utc_time_offset = "-5"
 # time_range = "10:00:00-14:00:00"
-
-[cmd_duration]
-min_time = 100
-style = 'fg:yellow'
-format = ' [$duration]($style)'
 
 # Color palettes
 [palettes.catppuccin]

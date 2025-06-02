@@ -1,0 +1,22 @@
+frame = "full"
+maximized = false
+no-multigrid = true
+srgb = true
+idle = false
+vsync = true
+
+theme = "#24273a"
+tabs = true
+
+# [font]
+# size = 13
+# hinting = "full"
+# edging = "antialias"
+#
+# [[font.normal]]
+# family = "JetBrainsMono Nerd Font"
+# style = "Normal"
+#
+# [[font.bold]]
+# family = "JetBrainsMono Nerd Font"
+# style = "SemiBold"

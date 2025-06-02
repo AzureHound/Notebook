@@ -1,0 +1,24 @@
+# Options
+--window-title ''
+--no-window-controls
+# --no-line-number
+--background '#24273a'
+--theme="Catppuccin Macchiato"
+--font 'JetBrainsMono Nerd Font=18'
+
+# Shadow
+--shadow-color '#1e2030'
+--shadow-blur-radius 30
+--shadow-offset-x 0
+--shadow-offset-y 0
+
+# Padding
+--pad-horiz 60
+--pad-vert 80
+--line-pad 2
+--code-pad-right 25
+
+# --tab-width 4
+# --line-offset 1
+# --highlight-lines '2-4;7'
+# --background-image <IMAGE>

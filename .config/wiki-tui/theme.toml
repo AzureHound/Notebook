@@ -1,0 +1,26 @@
+# main colors
+bg = "#24273a"
+fg = "#a5adcb"
+title = "#c6a0f6"
+search_title_fg = "#ed8796"
+
+# selected items
+selected_bg = "#494d64"
+selected_fg = "#a5adcb"
+
+# inactive & highlight
+inactive_fg = "#8088a2"
+highlight_fg = "#a5adcb"
+
+# scrollbar
+scrollbar_track_fg = "#363a4f"
+scrollbar_thumb_fg = "#8aadf4"
+
+# statusbar
+status_bar_fg = "#cad3f5"
+status_bar_bg = "#363a4f"
+
+# border
+border_fg = "#8aadf4"
+border_bg = "#24273a"
+border_type = "Rounded"

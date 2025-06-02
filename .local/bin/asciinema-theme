@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Check if input file is provided
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 <cast_file>"
+  exit 1
+fi
+
+CAST_FILE="$1"
+
+# Read the first line and the rest separately
+FIRST_LINE=$(head -n 1 "$CAST_FILE")
+REST_OF_FILE=$(tail -n +2 "$CAST_FILE")
+
+# Process the first line to add theme
+THEMED_LINE=$(echo "$FIRST_LINE" | sed 's/}$/,"theme":{"fg":"#cad3f5","bg":"#24273a","palette":"#494d64:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#8bd5ca:#b8c0e0:#5b6078:#ed8796:#a6da95:#eed49f:#8aadf4:#f5bde6:#8bd5ca:#a5adcb"}}/')
+
+# Write the modified file
+echo "$THEMED_LINE" >"$CAST_FILE"
+echo "$REST_OF_FILE" >>"$CAST_FILE"
+
+echo "✓ Theme added to '$CAST_FILE'"

@@ -5,15 +5,16 @@
   name = Wolf
   email = 183492338+AzureHound@users.noreply.github.com
 
-[safe]
-  directory = ~/Developer
-
 [init]
   defaultBranch = main
+
+[safe]
+  directory = ~/Developer
 
 [core]
   editor = nvim
   pager = delta #--dark --diff-so-fancy
+  compression = 9
   excludesfile = ~/.config/git/ignore
 
 [interactive]
@@ -27,15 +28,27 @@
   line-numbers = true
   line-numbers-right-format = "│ "
 
-[push]
-  default = current
+[status]
+  branch = true
+  short = true
+  showStash = true
+  showUntrackedFiles = all
 
 [pull]
   rebase = true
   default = current
 
+[push]
+  default = current
+
 [merge]
     conflictstyle = zdiff3
+
+[diff]
+  colorMoved = default
+  context = 3
+  renames = copies
+  interHunkContext = 10
 
 [rebase]
   autoStash = true
@@ -43,3 +56,10 @@
 [color "diff"]
   old = red strike
   new = green italic
+
+[color "branch"]
+  current  = magenta
+  local    = default
+  remote   = yellow
+  upstream = green
+  plain    = blue

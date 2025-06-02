@@ -1,0 +1,11 @@
+// Window switcher config
+configuration {
+  modi:                       "window";
+  show:                       "window";
+  display-window:             "Windows";
+  show-icons:                 true;
+  window-format:              "{w} · {c} · {t}";
+  window-match-fields:        "title,class,role,name";
+}
+
+@theme "~/.config/rofi/style.rasi"

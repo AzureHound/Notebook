@@ -3,6 +3,7 @@ com.github.neithern.g4music
 com.github.tchx84.Flatseal
 de.haeckerfelix.Fragments
 io.github.flattool.Warehouse
+io.github.nozwock.Packet
 io.gitlab.adhami3310.Impression
 org.freedesktop.Platform.GL.default
 org.freedesktop.Platform.GL.default

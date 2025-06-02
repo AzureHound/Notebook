@@ -1,0 +1,62 @@
+# Page
+[page]
+padding = { proportional = 2 }
+
+[page.parser]
+handle_unsupported = "hide"  # Options: "hide", "text", or "warn"
+
+[page.toc]
+enabled = true
+title = "Default"
+position = "Right"
+width_percentage = 18
+enable_scrolling = true
+item_format = "• {TEXT}"
+
+[page.zen_mode]
+include = "SCROLLBAR"
+default = false
+horizontal.percentage = 90
+vertical.percentage = 90
+
+# Keybindings
+[bindings.global]
+scroll_down = ["j", "down"]
+scroll_up = ["k", "up"]
+scroll_to_top = ["g", "home"]
+scroll_to_bottom = [{ code = "G", modifiers = "SHIFT" }, "end"]
+
+half_down = [{ code = "d", modifiers = "CONTROL" }, "pagedown"]
+half_up = [{ code = "u", modifiers = "CONTROL" }, "pageup"]
+
+pop_popup = "esc"
+unselect_scroll = "h"
+submit = "enter"
+quit = ["q", { code = "q", modifiers = "CONTROL" }]
+
+enter_search_bar = ["/", "i"]
+exit_search_bar = "esc"
+switch_context_search = "s"
+switch_context_page = "p"
+
+toggle_search_language_selection = "f2"
+toggle_logger = "l"
+
+## Search
+[bindings.search]
+continue_search = ["c", "n"]
+
+## Page
+[bindings.page]
+pop_page = ["esc", "b"]
+jump_to_header = "enter"
+
+select_first_link = [{ code = "left", modifiers = "SHIFT" }, "0"]
+select_last_link = [{ code = "right", modifiers = "SHIFT" }, "$"]
+select_prev_link = ["left", "h"]
+select_next_link = ["right", "l"]
+open_link = ["enter", "o"]
+
+toggle_page_language_selection = "f1"
+toggle_zen_mode = "z"
+toggle_toc = ["tab", "backtab"]

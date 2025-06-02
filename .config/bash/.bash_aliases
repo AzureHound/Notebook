@@ -1,9 +1,11 @@
 # aliases
+alias c='clear'
 alias la='eza -a --icons'
 alias ls='eza --icons'
 alias ll='eza -a -l --icons'
 alias cp='cp -i'
 alias mv='mv -i'
+alias grep='grep --color=auto'
 alias df='df -h'
 alias tree='eza -a -T --git-ignore --icons'
 alias lta4="eza -lTag --git-ignore --level=4 --icons"

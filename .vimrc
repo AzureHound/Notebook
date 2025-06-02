@@ -1,13 +1,16 @@
 " vim settings
-set wrap
 set ruler
-set mouse=a
 set number
+set nowrap
+set mouse=a
 set showcmd
+set showmode
 set nobackup
 set hlsearch
 set smarttab
+set syntax=on
 set incsearch
+set showmatch
 set expandtab
 set linebreak
 set ignorecase
@@ -15,11 +18,21 @@ set noswapfile
 set guicursor=
 set scrolloff=4
 set smartindent
-set nocursorline
-"set relativenumber
+set cursorline
 set nocursorcolumn
+filetype on
+filetype plugin on
+filetype indent on
 set encoding=UTF-8
 set clipboard=unnamedplus
+set statusline=
+set laststatus=2
+set statusline+=%=
+set statusline+=\ %F\ %M\ %Y\ %R
+set statusline+=\ %l\ \ %c\ \ %p%%
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
