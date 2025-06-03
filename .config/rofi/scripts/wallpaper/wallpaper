@@ -20,6 +20,9 @@ choice=$(
     $rofi_cmd
 )
 
+# Exit if no wallpaper selected
+[ -z "$choice" ] && exit 0
+
 wallpaper="$wallpapers_dir/$choice"
 
 if pgrep -x "hyprpaper" >/dev/null; then

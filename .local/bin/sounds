@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 
-# Start MPD
 if ! pgrep -x "mpd" >/dev/null; then
   mpd
+
+  if command -v wpctl &>/dev/null; then
+    SYSTEM_VOL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null | grep -o '[0-9]\.[0-9]\+' | head -1 | awk '{print int($1*100)}')
+    [[ -n "$SYSTEM_VOL" ]] && mpc volume "$SYSTEM_VOL" >/dev/null
+  elif command -v pactl &>/dev/null; then
+    SYSTEM_VOL=$(pactl get-sink-volume @DEFAULT_SINK@ 2>/dev/null | grep -o '[0-9]\+%' | head -1 | tr -d '%')
+    [[ -n "$SYSTEM_VOL" ]] && mpc volume "$SYSTEM_VOL" >/dev/null
+  elif command -v amixer &>/dev/null; then
+    SYSTEM_VOL=$(amixer -D pulse get Master 2>/dev/null | grep -o '[0-9]\+%' | head -1 | tr -d '%')
+    [[ -n "$SYSTEM_VOL" ]] && mpc volume "$SYSTEM_VOL" >/dev/null
+  fi
 fi
 
-# Kill MPD on exit
 trap 'pkill -x mpd' EXIT
 
-# Start RMPC in foreground
-rmpc
+exec rmpc

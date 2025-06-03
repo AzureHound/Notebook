@@ -1,5 +1,4 @@
-# Atuin Configs
-
+# Paths
 db_path = "$HOME/.local/share/atuin/history.db"
 key_path = "$HOME/.local/share/atuin/key"
 session_path = "$HOME/.local/share/atuin/session"

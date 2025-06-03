@@ -1,128 +1,96 @@
 #!/usr/bin/env bash
 
-# Hypr sunset daemon - checks half-hour intervals and applies appropriate temperature
+# Hypr sunset daemon - adjusts screen temperature throughout the day
+# Temperature settings in Kelvin (lower=warmer/orange, higher=cooler/blue)
+TEMP_00_00=2700
+TEMP_00_30=2700
+TEMP_01_00=2700
+TEMP_01_30=2800
+TEMP_02_00=2800
+TEMP_02_30=2800
+TEMP_03_00=2900
+TEMP_03_30=3000
+TEMP_04_00=3200
+TEMP_04_30=3400
+TEMP_05_00=3600
+TEMP_05_30=4000
+TEMP_06_00=4200
+TEMP_06_30=4600
+TEMP_07_00=5000
+TEMP_07_30=5400
+TEMP_08_00=5700
+TEMP_08_30=6000
+TEMP_09_00=6300
+TEMP_09_30=6500
+TEMP_10_00=6500
+TEMP_10_30=6400
+TEMP_11_00=6500
+TEMP_11_30=6600
+TEMP_12_00=6600
+TEMP_12_30=6500
+TEMP_13_00=6400
+TEMP_13_30=6300
+TEMP_14_00=6200
+TEMP_14_30=6100
+TEMP_15_00=6000
+TEMP_15_30=5800
+TEMP_16_00=5600
+TEMP_16_30=5300
+TEMP_17_00=4900
+TEMP_17_30=4500
+TEMP_18_00=4200
+TEMP_18_30=3900
+TEMP_19_00=3600
+TEMP_19_30=3400
+TEMP_20_00=3200
+TEMP_20_30=3000
+TEMP_21_00=2900
+TEMP_21_30=2800
+TEMP_22_00=2800
+TEMP_22_30=2700
+TEMP_23_00=2700
+TEMP_23_30=2700
 
-# Temperature settings for different hours (in Kelvin)
-# Format: TEMP_HOUR_FIRST_HALF and TEMP_HOUR_SECOND_HALF
-TEMP_00_FIRST_HALF=3000
-TEMP_00_SECOND_HALF=3000
-TEMP_01_FIRST_HALF=3000
-TEMP_01_SECOND_HALF=3000
-TEMP_02_FIRST_HALF=3000
-TEMP_02_SECOND_HALF=3000
-TEMP_03_FIRST_HALF=3000
-TEMP_03_SECOND_HALF=3000
-TEMP_04_FIRST_HALF=3000
-TEMP_04_SECOND_HALF=3200
-TEMP_05_FIRST_HALF=3400
-TEMP_05_SECOND_HALF=3600
-TEMP_06_FIRST_HALF=3800
-TEMP_06_SECOND_HALF=4000
-TEMP_07_FIRST_HALF=4300
-TEMP_07_SECOND_HALF=4600
-TEMP_08_FIRST_HALF=5000
-TEMP_08_SECOND_HALF=5500
-TEMP_09_FIRST_HALF=5800
-TEMP_09_SECOND_HALF=6000
-TEMP_10_FIRST_HALF=6300
-TEMP_10_SECOND_HALF=6500
-TEMP_11_FIRST_HALF=6500
-TEMP_11_SECOND_HALF=6500
-TEMP_12_FIRST_HALF=6500
-TEMP_12_SECOND_HALF=6500
-TEMP_13_FIRST_HALF=6500
-TEMP_13_SECOND_HALF=6500
-TEMP_14_FIRST_HALF=6500
-TEMP_14_SECOND_HALF=6300
-TEMP_15_FIRST_HALF=6000
-TEMP_15_SECOND_HALF=5800
-TEMP_16_FIRST_HALF=5600
-TEMP_16_SECOND_HALF=5300
-TEMP_17_FIRST_HALF=5000
-TEMP_17_SECOND_HALF=4800
-TEMP_18_FIRST_HALF=4600
-TEMP_18_SECOND_HALF=4400
-TEMP_19_FIRST_HALF=4200
-TEMP_19_SECOND_HALF=4000
-TEMP_20_FIRST_HALF=3800
-TEMP_20_SECOND_HALF=3600
-TEMP_21_FIRST_HALF=3400
-TEMP_21_SECOND_HALF=3200
-TEMP_22_FIRST_HALF=3100
-TEMP_22_SECOND_HALF=3000
-TEMP_23_FIRST_HALF=3000
-TEMP_23_SECOND_HALF=3000
-
-# Cleanup function to reset temperature when script terminates
+# Reset temperature on exit
 cleanup() {
-  # Reset to neutral temperature on exit
   hyprctl hyprsunset temperature 6500 2>/dev/null
   exit 0
 }
 
-# Set up trap to catch termination signals
 trap cleanup SIGINT SIGTERM
 
-# Calculate time until next check
+# Calculate seconds until next 30-min interval
 calculate_next_check() {
   current_minute=$(date +%M)
   current_second=$(date +%S)
 
-  # If we're before the half-hour mark
   if [ $current_minute -lt 30 ]; then
     echo $(((30 - current_minute) * 60 - current_second))
   else
-    # If we're after the half-hour mark, calculate time until next hour
     echo $(((60 - current_minute) * 60 - current_second))
   fi
 }
 
-# Update temperature based on current hour and half-hour
+# Set temperature based on time
 update_temperature() {
   current_hour=$(date +%H)
   current_minute=$(date +%M)
+  hour_key="$current_hour"
+  minute_key=$([ $current_minute -lt 30 ] && echo "00" || echo "30")
 
-  # Handle hour 00 specially and remove leading zero for other hours
-  if [ "$current_hour" = "00" ]; then
-    hour_key="00"
-  else
-    hour_key=${current_hour#0}
-  fi
+  var_name="TEMP_${hour_key}_${minute_key}"
+  temp_value=${!var_name:-6500} # Default to 6500K if not defined
 
-  # Determine which half of the hour we're in
-  if [ $current_minute -lt 30 ]; then
-    half="FIRST_HALF"
-  else
-    half="SECOND_HALF"
-  fi
-
-  # Create the variable name and get its value
-  var_name="TEMP_${hour_key}_${half}"
-  temp_value=${!var_name}
-
-  # Check if the variable exists
-  if [ -z "$temp_value" ]; then
-    # Fallback to a safe value if the variable doesn't exist
-    temp_value=6500
-  fi
-
-  # Apply the temperature and check for errors
-  if ! hyprctl hyprsunset temperature $temp_value 2>/dev/null; then
-    # Hyprctl command failed, exit the script
-    exit 1
-  fi
+  hyprctl hyprsunset temperature $temp_value 2>/dev/null || exit 1
 }
 
-# Check if hyprctl is available
-if ! command -v hyprctl >/dev/null 2>&1; then
-  exit 1
-fi
+# Check for required command
+command -v hyprctl >/dev/null 2>&1 || exit 1
 
 # Main loop
 while true; do
   update_temperature
   sleep_time=$(calculate_next_check)
-  # Ensure sleep time is positive (handle clock changes)
   [ "$sleep_time" -lt 1 ] && sleep_time=1
   sleep $sleep_time
 done

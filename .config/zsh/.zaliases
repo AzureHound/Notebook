@@ -25,9 +25,8 @@ alias matrix="unimatrix -n -c yellow -s 90 -l 'o'"
 alias weather='curl "v2.wttr.in/Agartala?F"'
 
 alias branch='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff --color=always {1} | delta" --pointer="" | xargs git checkout'
-alias gitlogs='git log --oneline --graph --all'
+alias glogs='git log --oneline --graph --all'
 alias gen='tgpt -i'
 alias lg='lazygit'
-alias ssh="kitten ssh"
 alias powertop='sudo powertop'
 alias zed='zeditor'

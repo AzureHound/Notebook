@@ -41,26 +41,6 @@
       "image-size": 96,
       "image-radius": 12,
       "blur": false
-    },
-    "buttons-grid": {
-      "actions": [
-        {
-          "label": "󰐥",
-          "command": "systemctl poweroff"
-        },
-        {
-          "label": "󰜉",
-          "command": "systemctl reboot"
-        },
-        {
-          "label": "󰍃",
-          "command": "hyprctl dispatch exit"
-        },
-        {
-          "label": "󰏥",
-          "command": "systemctl suspend"
-        }
-      ]
     }
   }
 }

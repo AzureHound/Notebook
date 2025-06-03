@@ -50,6 +50,9 @@ pipx upgrade-all
 echo -e "\n${GREEN}gh  ${RESET}\n"
 gh extension upgrade --all
 
+echo -e "\n${GREEN}spicetify  ${RESET}\n"
+spicetify update
+
 end_time=$(date +%s)
 duration=$((end_time - start_time))
 minutes=$((duration / 60))

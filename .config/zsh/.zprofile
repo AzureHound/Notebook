@@ -35,8 +35,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$XDG_BIN_HOME:$XDG_BIN_HOME/color-scripts:$GOPATH/bin:$CARGO_HOME/bin:$XDG_SCRIPT_HOME:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/lib/rustup/bin:/usr/lib/go/bin:$HOME/.dotnet/tools:$XDG_DATA_HOME/nvim:$XDG_DATA_HOME/nvim/mason/bin:$XDG_DATA_HOME/npm/bin:$HOME/.yarn/bin:$XDG_DATA_HOME/pnpm:$PATH"
 
 # History
-export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
-export PYTHON_HISTORY="$XDG_DATA_HOME/python/history"
+export LESSHISTFILE="$XDG_CACHE_HOME/less/less_history"
+export PYTHON_HISTORY="$XDG_CACHE_HOME_HOME/python/history"
 
 # Editor
 export EDITOR="nvim"
@@ -60,11 +60,11 @@ export FZF_DEFAULT_OPTS="--height=100% --info=right --border=rounded --pointer='
 --bind='ctrl-y:execute-silent(printf {} | cut -f 2- | wl-copy --trim-newline)' \
 --multi --prompt='󰥨 Search: '"
 
-# GPG/LANG
-export GPG_TTY="$(tty)"
-
 # Glow
 export GLAMOUR_STYLE="$HOME/.config/glow/themes/catppuccin-macchiato.json"
+
+# GPG/LANG
+export GPG_TTY="$(tty)"
 
 # MANPATH
 export MANPATH="/usr/share/man:/usr/local/man:/usr/local/share/man"

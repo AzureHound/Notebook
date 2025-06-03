@@ -43,9 +43,6 @@ $HOME/.config/hypr/scripts/portal &
 # Audio
 easyeffects --gapplication-service &
 
-# Keyboard
-kanata -c ~/.config/kanata/config.kbd &
-
 # Random Wallpaper
 sleep 0.4 && $HOME/.config/hypr/scripts/random_wallpaper &
 

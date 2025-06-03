@@ -65,7 +65,7 @@ theme:
       showSeparator: true
       compact: false
 pager:
-  diff: "delta"
+  diff: "delta --dark --paging=never"
 confirmQuit: false
 
 theme:

@@ -28,10 +28,18 @@ zinit snippet OMZP::python
 zinit snippet OMZP::sudo
 zinit snippet OMZP::uv
 
-# Load completions
+# Load Completions
 [[ -d "$XDG_CACHE_HOME/zsh" ]] || mkdir -p "$XDG_CACHE_HOME/zsh"
 autoload -Uz compinit && compinit
 zinit cdreplay -q
+
+# Keybindings
+bindkey -e
+bindkey '^[|' zsh_gh_copilot_explain
+bindkey '^[\' zsh_gh_copilot_suggest
+bindkey '^[[B' history-search-forward
+bindkey '^[[A' history-search-backward
+bindkey '^[w' kill-region
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -51,6 +59,15 @@ SAVEHIST=10000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 
+# Filter ZSH Error History
+zshaddhistory() {
+  local j=1
+  while ([[ ${${(z)1}[$j]} == *=* ]]) {
+    ((j++))
+  }
+  whence ${${(z)1}[$j]} >| /dev/null || return 1
+}
+
 # Options
 setopt autocd
 setopt appendhistory
@@ -67,15 +84,6 @@ setopt no_case_glob no_case_match
 setopt globdots
 setopt extended_glob
 unsetopt prompt_sp
-
-# Filter ZSH Error History
-zshaddhistory() {
-  local j=1
-  while ([[ ${${(z)1}[$j]} == *=* ]]) {
-    ((j++))
-  }
-  whence ${${(z)1}[$j]} >| /dev/null || return 1
-}
 
 # I-beam cursor
 echo -ne "\e[5 q"
@@ -99,19 +107,11 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(register-python-argcomplete pipx)"
 
-# FZF
-source <(fzf --zsh)
-
 # Color Scripts
 # pokemon-colorscripts --no-title -r 1,3,6
 
-# Keybindings
-bindkey -e
-bindkey '^[|' zsh_gh_copilot_explain
-bindkey '^[\' zsh_gh_copilot_suggest
-bindkey '^[[B' history-search-forward
-bindkey '^[[A' history-search-backward
-bindkey '^[w' kill-region
+# FZF
+source <(fzf --zsh)
 
 # Man
 export MANPAGER="vim -M +MANPAGER -"
