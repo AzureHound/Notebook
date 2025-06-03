@@ -44,10 +44,10 @@ $HOME/.config/hypr/scripts/portal &
 easyeffects --gapplication-service &
 
 # Random Wallpaper
-sleep 0.4 && $HOME/.config/hypr/scripts/random_wallpaper &
+$HOME/.config/hypr/scripts/random_wallpaper &
 
 # Filter Automation
-sleep 0.4 && $HOME/.config/hypr/scripts/sunset &
+$HOME/.config/hypr/scripts/sunset &
 
 # Sync
 # syncthing -no-browser &
