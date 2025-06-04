@@ -10,6 +10,9 @@ udiskie &
 hyprpaper &
 # swww-daemon --format xrgb &
 
+# Random Wallpaper
+sleep 0.4 && $HOME/.config/hypr/scripts/random_wallpaper &
+
 # Pyprland Daemon
 pypr --debug /tmp/pypr.log &
 
@@ -21,6 +24,9 @@ swayosd-server &
 
 # Filter
 hyprsunset &
+
+# Filter Automation
+sleep 0.4 && $HOME/.config/hypr/scripts/sunset &
 
 # Notify connecting & disconnecting devices
 # devify &
@@ -46,14 +52,8 @@ $HOME/.config/hypr/scripts/portal &
 # Audio
 easyeffects --gapplication-service &
 
-# Random Wallpaper
-$HOME/.config/hypr/scripts/random_wallpaper &
-
-# Filter Automation
-$HOME/.config/hypr/scripts/sunset &
+# Power Saving
+brightnessctl s 2% &
 
 # Sync
 # syncthing -no-browser &
-
-# Power Saving
-brightnessctl s 2% &
