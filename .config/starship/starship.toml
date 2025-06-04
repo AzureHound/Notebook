@@ -9,8 +9,10 @@ $sudo\
 $shell\
 $fill\
 $aws\
+$c\
 $docker_context\
 $golang\
+$java\
 $jobs\
 $lua\
 $nodejs\
@@ -99,6 +101,16 @@ symbol = ' '
 style = 'yellow'
 format = '[$symbol($profile )(\[$duration\] )]($style)'
 
+[c]
+symbol = " "
+style = "teal"
+format = '[$symbol($profile )(\[$duration\] )]($style)'
+
+[deno]
+symbol = ' '
+style = 'green'
+format = '[$symbol($profile )(\[$duration\] )]($style)'
+
 [docker_context]
 symbol = ' '
 style = 'fg:sapphire'
@@ -129,6 +141,11 @@ style = 'fg:red'
 symbol = ' '
 style = 'blue'
 format = '[${symbol}(${version})]($style)'
+
+[java]
+symbol = ""
+style = "yellow"
+format = '[$symbol($profile )(\[$duration\] )]($style)'
 
 [jobs]
 symbol = ' '

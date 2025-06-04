@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
+# █▀ █▀▀ █▀█ █ █ █ █▀▀ █▀▀ █▀
+# ▄█ ██▄ █▀▄ ▀▄▀ █ █▄▄ ██▄ ▄█
+
 # Removable Media Automounter
 udiskie &
 
-# Wallpaper Backend
+# Wallpaper
 hyprpaper &
 # swww-daemon --format xrgb &
 

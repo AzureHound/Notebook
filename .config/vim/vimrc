@@ -1,4 +1,30 @@
-" vim settings
+" XDG Directory Support
+if empty($XDG_CACHE_HOME)  | let $XDG_CACHE_HOME  = $HOME.'/.cache'       | endif
+if empty($XDG_CONFIG_HOME) | let $XDG_CONFIG_HOME = $HOME.'/.config'      | endif
+if empty($XDG_DATA_HOME)   | let $XDG_DATA_HOME   = $HOME.'/.local/share' | endif
+if empty($XDG_STATE_HOME)  | let $XDG_STATE_HOME  = $HOME.'/.local/state' | endif
+
+" Runtime paths for XDG directories
+set runtimepath^=$XDG_CONFIG_HOME/vim
+set runtimepath+=$XDG_DATA_HOME/vim
+set runtimepath+=$XDG_CONFIG_HOME/vim/after
+
+" Pack paths
+set packpath^=$XDG_DATA_HOME/vim,$XDG_CONFIG_HOME/vim
+set packpath+=$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim/after
+
+" Vim temp file path
+let &viminfofile = $XDG_STATE_HOME.'/vim/viminfo'
+
+" Create required directories
+let g:netrw_home = $XDG_DATA_HOME."/vim"
+call mkdir($XDG_DATA_HOME."/vim/spell", 'p')
+set backupdir=$XDG_STATE_HOME/vim/backup//   | call mkdir(&backupdir, 'p')
+set directory=$XDG_STATE_HOME/vim/swap//     | call mkdir(&directory, 'p')
+set undodir=$XDG_STATE_HOME/vim/undo//       | call mkdir(&undodir,   'p')
+set viewdir=$XDG_STATE_HOME/vim/view//       | call mkdir(&viewdir,   'p')
+
+" Settings
 set ruler
 set number
 set nowrap
@@ -20,11 +46,14 @@ set scrolloff=4
 set smartindent
 set cursorline
 set nocursorcolumn
+
 filetype on
 filetype plugin on
 filetype indent on
 set encoding=UTF-8
 set clipboard=unnamedplus
+
+" Status line
 set statusline=
 set laststatus=2
 set statusline+=%=
@@ -34,15 +63,15 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+" Auto-install Vim-plug & Plugins
+let data_dir = $XDG_DATA_HOME.'/vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | source $XDG_CONFIG_HOME.'/vim/vimrc'
 endif
 
-call plug#begin()
-
-" Plugins
+" Plugin definitions
+call plug#begin(data_dir . '/plugged')
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -50,33 +79,39 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdtree'
-
 call plug#end()
 
-colorscheme catppuccin_macchiato
+" Auto-install missing plugins
+if empty(glob(data_dir . '/plugged/catppuccin'))
+  autocmd VimEnter * PlugInstall --sync | source $XDG_CONFIG_HOME.'/vim/vimrc'
+endif
 
+" Safely load colorscheme
+silent! colorscheme catppuccin_macchiato
+
+" Line number highlighting
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
+" Grep program
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
+" Key mappings
 let mapleader = " "
 nnoremap <C-p> :Files<Cr>
 nnoremap <C-Q> :Rg<Cr>
-
 nnoremap <leader>b :Buffer<CR>
 
+" Paste toggle function
 function! TogglePaste()
     if(&paste == 0)
-        set paste
-        echo "Paste Mode Enabled"
+        set paste | echo "Paste Mode Enabled"
     else
-        set nopaste
-        echo "Paste Mode Disabled"
+        set nopaste | echo "Paste Mode Disabled"
     endif
 endfunction
-
 map <leader>p :call TogglePaste()<cr>
 
+" NERDTree settings
 let NERDTreeShowHidden=1
 function! NerdTreeToggleFind()
     if exists("g:NERDTree") && g:NERDTree.IsOpen()
@@ -87,6 +122,5 @@ function! NerdTreeToggleFind()
         NERDTree
     endif
 endfunction
-
 nnoremap <C-n> :call NerdTreeToggleFind()<CR>
 autocmd BufEnter * if (winnr("$") == 1 && exists("g:NERDTree") && g:NERDTree.IsOpen()) | quit | endif
